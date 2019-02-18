@@ -1,5 +1,6 @@
 library IEEE;
 USE ieee.std_logic_1164.ALL;
+use ieee.std_logic_arith;
 USE ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
@@ -19,11 +20,16 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture behavioral of project_reti_logiche is
-    type stateType is (reset, read, waitClock, readData, calcDistance);
+    type stateType is (reset, read, waitClock, readData, calcDistance, load);
     signal state: stateType;
     signal cnt: integer range 0 to 19;
     signal mask: std_logic_vector(7 downto 0);
     signal maskPos: integer range 0 to 7;
+    signal outMask: std_logic_vector(7 downto 0);
+    --signal bestDistance, tempDistance:  std_logic_vector(8 downto 0);
+    --signal bestDistance, tempDistance:  integer range 0 to 512;
+    --signal xAddress, yAddress: std_logic_vector(7 downto 0);
+    --signal xPoint, yPoint: std_logic_vector(7 downto 0);
     
     
             
@@ -48,7 +54,8 @@ begin
         --variable mask: std_logic_vector(7 downto 0);
         --variable maskPos: integer range 0 to 7;
         variable readXY: std_logic; -- 0 for X, 1 for Y
-        variable outMask: std_logic_vector(7 downto 0);
+        --variable outMask: std_logic_vector(7 downto 0);
+        variable bestDistance, tempDistance:  std_logic_vector(8 downto 0);
         
         
         
@@ -67,6 +74,9 @@ begin
                     mask <= (others => '0');
                     maskPos <= 0;
                     state <= read;
+                    outMask <= (others => '0');
+                    bestDistance := (others => '1');
+                    tempDistance := (others => '1');
                 end if;
              
              when read =>
@@ -132,7 +142,7 @@ begin
                 elsif (cnt > 2) then                                   
                     if (currentAddress(0) = '1') then -- take first x then y coordinates
                         --cnt <= cnt + 1;
-                        xAddress:= i_data;
+                        xAddress := i_data;
                         state <= read;
                     else          
                         yAddress := i_data;                                             
@@ -145,9 +155,27 @@ begin
                 cnt <= cnt + 1;
                 
                 
-            when calcDistance =>
+            when calcDistance =>            
+                tempDistance := ('0' & std_logic_vector(abs(signed(xAddress) - signed(xPoint)) + abs(signed(yAddress) - signed(yPoint))));
+
+                if (tempDistance < bestDistance) then
+                    bestDistance := tempDistance;
+                    outMask <= ((maskPos - 1) => '1', others => '0');
+                elsif (tempDistance > bestDistance) then        
+                    outMask(maskPos - 1) <= '0';
+                else
+                    outMask(maskPos - 1) <= '1';
+                end if; 
+                if (cnt = 19) then
+                    state <= load;
+                else
+                    state <= read;
+                end if;
+             
+             
+             
+            when load =>
                 state <= read;                
-                
                     
                 
         end case;

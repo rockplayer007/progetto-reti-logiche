@@ -71,6 +71,7 @@ begin
                 elsif (i_start = '1') then
                 -- initializing all the variables
                     cnt <= 0;
+                    o_done <= '0';
                     mask <= (others => '0');
                     maskPos <= 0;
                     state <= read;
@@ -167,6 +168,12 @@ begin
                     outMask(maskPos - 1) <= '1';
                 end if; 
                 if (cnt = 19) then
+                    o_en <= '1';
+                    o_we <= '1';
+                    o_done <= '1';
+                     
+                    o_address <= "0000000000010011";
+                    o_data <= outMask;
                     state <= load;
                 else
                     state <= read;
@@ -175,7 +182,8 @@ begin
              
              
             when load =>
-                state <= read;                
+                o_done <= '0';
+                state <= reset;                
                     
                 
         end case;

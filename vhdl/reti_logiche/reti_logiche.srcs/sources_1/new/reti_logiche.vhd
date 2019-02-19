@@ -25,7 +25,7 @@ architecture behavioral of project_reti_logiche is
     signal cnt: integer range 0 to 19;
     signal mask: std_logic_vector(7 downto 0);
     signal maskPos: integer range 0 to 7;
-    signal outMask: std_logic_vector(7 downto 0);
+    --signal outMask: std_logic_vector(7 downto 0);
     --signal bestDistance, tempDistance:  std_logic_vector(8 downto 0);
     --signal bestDistance, tempDistance:  integer range 0 to 512;
     --signal xAddress, yAddress: std_logic_vector(7 downto 0);
@@ -54,7 +54,7 @@ begin
         --variable mask: std_logic_vector(7 downto 0);
         --variable maskPos: integer range 0 to 7;
         variable readXY: std_logic; -- 0 for X, 1 for Y
-        --variable outMask: std_logic_vector(7 downto 0);
+        variable outMask: std_logic_vector(7 downto 0);
         variable bestDistance, tempDistance:  std_logic_vector(8 downto 0);
         
         
@@ -75,7 +75,7 @@ begin
                     mask <= (others => '0');
                     maskPos <= 0;
                     state <= read;
-                    outMask <= (others => '0');
+                    outMask := (others => '0');
                     bestDistance := (others => '1');
                     tempDistance := (others => '1');
                 end if;
@@ -169,11 +169,11 @@ begin
 
                 if (tempDistance < bestDistance) then
                     bestDistance := tempDistance;
-                    outMask <= ((maskPos - 1) => '1', others => '0');
+                    outMask := ((maskPos - 1) => '1', others => '0');
                 elsif (tempDistance > bestDistance) then        
-                    outMask(maskPos - 1) <= '0';
+                    outMask(maskPos - 1) := '0';
                 else
-                    outMask(maskPos - 1) <= '1';
+                    outMask(maskPos - 1) := '1';
                 end if; 
                 if (cnt = 19) then
                     o_en <= '1';
@@ -200,4 +200,3 @@ begin
     
     
 end architecture;
-        

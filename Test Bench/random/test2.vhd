@@ -7,10 +7,10 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
-entity autogen_test_bench_2 is
-end autogen_test_bench_2;
+entity autogen_test_bench_3 is
+end autogen_test_bench_3;
 
-architecture bhv of autogen_test_bench_2 is
+architecture bhv of autogen_test_bench_3 is
 	constant c_CLOCK_PERIOD        : time := 100 ns;
 	signal   tb_done               : std_logic;
 	signal   mem_address           : std_logic_vector (15 downto 0) := (others => '0');
@@ -23,29 +23,29 @@ architecture bhv of autogen_test_bench_2 is
 
 	type ram_type is array (65535 downto 0) of std_logic_vector(7 downto 0);
 	signal RAM: ram_type := (
-		0 => "11011111",
-		1 => std_logic_vector(to_unsigned(108, 8)),
-		2 => std_logic_vector(to_unsigned(184, 8)),
-		3 => std_logic_vector(to_unsigned(48, 8)),
-		4 => std_logic_vector(to_unsigned(57, 8)),
-		5 => std_logic_vector(to_unsigned(106, 8)),
-		6 => std_logic_vector(to_unsigned(186, 8)),
-		7 => std_logic_vector(to_unsigned(107, 8)),
-		8 => std_logic_vector(to_unsigned(181, 8)),
-		9 => std_logic_vector(to_unsigned(14, 8)),
-		10 => std_logic_vector(to_unsigned(162, 8)),
-		11 => std_logic_vector(to_unsigned(100, 8)),
-		12 => std_logic_vector(to_unsigned(192, 8)),
-		13 => std_logic_vector(to_unsigned(93, 8)),
-		14 => std_logic_vector(to_unsigned(185, 8)),
-		15 => std_logic_vector(to_unsigned(98, 8)),
-		16 => std_logic_vector(to_unsigned(190, 8)),
-		17 => std_logic_vector(to_unsigned(100, 8)),
-		18 => std_logic_vector(to_unsigned(183, 8)),
+		0 => "00000100",
+		1 => std_logic_vector(to_unsigned(51, 8)),
+		2 => std_logic_vector(to_unsigned(206, 8)),
+		3 => std_logic_vector(to_unsigned(218, 8)),
+		4 => std_logic_vector(to_unsigned(225, 8)),
+		5 => std_logic_vector(to_unsigned(140, 8)),
+		6 => std_logic_vector(to_unsigned(68, 8)),
+		7 => std_logic_vector(to_unsigned(57, 8)),
+		8 => std_logic_vector(to_unsigned(81, 8)),
+		9 => std_logic_vector(to_unsigned(150, 8)),
+		10 => std_logic_vector(to_unsigned(249, 8)),
+		11 => std_logic_vector(to_unsigned(208, 8)),
+		12 => std_logic_vector(to_unsigned(245, 8)),
+		13 => std_logic_vector(to_unsigned(150, 8)),
+		14 => std_logic_vector(to_unsigned(137, 8)),
+		15 => std_logic_vector(to_unsigned(15, 8)),
+		16 => std_logic_vector(to_unsigned(233, 8)),
+		17 => std_logic_vector(to_unsigned(215, 8)),
+		18 => std_logic_vector(to_unsigned(237, 8)),
 		others => (others =>'0')
 	);
 
-	constant EXPECTED_OUTPUT : std_logic_vector(7 downto 0) := "11001101";
+	constant EXPECTED_OUTPUT : std_logic_vector(7 downto 0) := "00000100";
 
 	component project_reti_logiche is
 		port (
@@ -111,7 +111,7 @@ test:
 		tb_start <= '0';
 		wait until tb_done = '0';
 		assert RAM(19) = EXPECTED_OUTPUT report "TEST FALLITO" severity failure;
-		assert false report "TEST #2 OK" severity failure;
+		assert false report "TEST #3 OK" severity failure;
 	end process test;
 
 end bhv;

@@ -17,10 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/ComputerDiRoland/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-6208-ComputerDiRoland/incrSyn
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
-create_project -in_memory -part xc7z020clg484-1
+create_project -in_memory -part xc7a200tfbg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
@@ -29,7 +26,6 @@ set_property webtalk.parent_dir {C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo
 set_property parent.project_path {C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part em.avnet.com:zed:part0:1.4 [current_project]
 set_property ip_output_repo {c:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {{C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.srcs/sources_1/new/reti_logiche.vhd}}
@@ -44,7 +40,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top project_reti_logiche -part xc7z020clg484-1
+synth_design -top project_reti_logiche -part xc7a200tfbg484-1
 
 
 # disable binary constraint mode for synth run checkpoints

@@ -119,6 +119,14 @@ begin
                         o_address <= currentAddress;
                         state <= waitClock;
                     end if;
+                else
+                    o_en <= '1';
+                    o_we <= '1';
+                    o_done <= '1';
+                     
+                    o_address <= "0000000000010011";
+                    o_data <= outMask;
+                    state <= load;
                                     
                 end if;
                 

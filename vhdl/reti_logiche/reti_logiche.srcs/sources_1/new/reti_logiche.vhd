@@ -12,6 +12,11 @@ entity project_reti_logiche is
         i_rst: in std_logic;
         i_data: in std_logic_vector(7 downto 0);
         o_address: out std_logic_vector(15 downto 0);
+        -----------
+        tempAddress: out std_logic_vector(15 downto 0);
+        tempOutMask: out std_logic_vector (7 downto 0);
+        tempDist: out std_logic_vector(8 downto 0);
+        
         o_done: out std_logic;
         o_en: out std_logic;
         o_we: out std_logic;
@@ -20,15 +25,15 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture behavioral of project_reti_logiche is
-    type stateType is (reset, read, waitClock, readData, calcDistance, load, waitAgain, last);
+    type stateType is (reset, read, waitClock, readData, calcDistance, calcDistance2, compareDistance, load, waitAgain, last);
     signal state: stateType;
     signal cnt: integer range 0 to 20;
     signal mask: std_logic_vector(7 downto 0);
     signal maskPos: integer range 0 to 7;
-    --signal outMask: std_logic_vector(7 downto 0);
-    signal bestDistance:  std_logic_vector(8 downto 0) := (others => '1');
-    --signal bestDistance, tempDistance:  std_logic_vector(8 downto 0) := (others => '1');
-    --signal temp1, temp2: std_logic_vector(8 downto 0) := (others => '1');
+    signal outMask: std_logic_vector(7 downto 0);
+    --signal bestDistance:  std_logic_vector(8 downto 0) := (others => '1');
+    signal bestDistance, tempDistance:  std_logic_vector(8 downto 0) := (others => '1');
+    signal temp1, temp2: std_logic_vector(8 downto 0) := (others => '1');
     --signal diffx: signed (8 downto 0);
     --signal bestDistance, tempDistance:  integer range 0 to 512;
     signal xAddress, yAddress: std_logic_vector(7 downto 0);
@@ -49,13 +54,10 @@ begin
         --variable mask: std_logic_vector(7 downto 0);
         --variable maskPos: integer range 0 to 7;
         --variable readXY: std_logic; -- 0 for X, 1 for Y
-        variable outMask: std_logic_vector(7 downto 0);
+        --variable outMask: std_logic_vector(7 downto 0);
         --variable bestDistance, tempDistance:  std_logic_vector(8 downto 0);
-        variable tempDistance:  std_logic_vector(8 downto 0) := (others => '1');
-        variable temp1, temp2: std_logic_vector(8 downto 0) := (others => '1');
-        
-        
-        
+        --variable tempDistance:  std_logic_vector(8 downto 0) := (others => '1');
+        --variable temp1, temp2: std_logic_vector(8 downto 0) := (others => '1');    
         
     begin
     if (i_rst = '1') then
@@ -72,7 +74,8 @@ begin
                     currentAddress <= "0000000000000000";
                     mask <= (others => '0');
                     maskPos <= 0;                    
-                    outMask := (others => '0');
+                    outMask <= (others => '0');
+                    tempOutMask <= (others => '0');
                     
                     --bestDistance <= (others => '1');  -- 511 max distance is 255+255=510
                     --tempDistance <= (others => '1');
@@ -93,23 +96,18 @@ begin
                     currentAddress <= "0000000000010010";
                     o_address <= currentAddress;
                     state <= waitClock;  
-                
-                
+                           
                 elsif (cnt = 2) then
                     if (mask(maskPos) = '1') then
-                        currentAddress <= "0000000000000001";  -- if the maks bit is 1 start reading the first centroid                                   
-                        
-                        --state <= waitClock;                       
+                        currentAddress <= "0000000000000001";  -- if the maks bit is 1 start reading the first centroid                                                         
                     else    
-                        currentAddress <= "0000000000000011";  -- otherwhise dont read it, go to the next address                       
---                        cnt <= cnt + 2;
---                        maskPos <= maskPos + 1;                       
+                        currentAddress <= "0000000000000011";  -- otherwhise dont read it, go to the next address    
+                                                                
                     end if;
                     state <= waitClock;
                     o_address <= currentAddress;
 
-                elsif (cnt > 2 and cnt < 19) then
-                    
+                elsif (cnt > 2 and cnt < 19) then                   
                     if (mask(maskPos) = '1') then
                         currentAddress <= currentAddress + "0000000000000001";                                      
                         state <= waitClock;                       
@@ -123,19 +121,13 @@ begin
                     o_address <= currentAddress;
                     
                 else  -- when cnt = 19
---                    o_en <= '1';
---                    o_we <= '1';
---                    o_done <= '1';                     
-                    --o_address <= "0000000000010011";  -- 19 address for writing
-                    --o_data <= outMask;
                     state <= waitAgain;
                                     
                 end if;
                 
              when waitClock =>  -- this state allows to read in the data from the memory in this clock cycle
                 state <= readData;
-                
-             
+                             
              when readData =>
                 
                 if (cnt = 0) then                    
@@ -147,9 +139,9 @@ begin
                 elsif (cnt = 2) then
                     yPoint <= i_data;
                     state <= read;
-                    if (currentAddress(0) = '0') then
+                    if (mask(maskPos) = '1') then
+                        maskPos <= 1; 
                         cnt <= cnt + 2;
-                        maskPos <= maskPos + 1;
                     end if;
                         
                 elsif (cnt > 2) then                                   
@@ -157,9 +149,8 @@ begin
                         xAddress <= i_data;
                         state <= read;
                     else          
-                        yAddress <= i_data;   
-                        cnt <= cnt + 1;                                          
-                        maskPos <= maskPos + 1; 
+                        yAddress <= i_data;                                            
+                        --maskPos <= maskPos + 1; 
                         state <= calcDistance;                           
                     end if;    
                     
@@ -168,23 +159,34 @@ begin
                 
             when calcDistance => 
                 
-                temp1 := std_logic_vector((abs(signed('0' & xAddress) - signed('0' & xPoint))));  
-                temp2 := std_logic_vector((abs(signed('0' & yAddress) - signed('0' & yPoint)))); 
-                tempDistance := temp1 + temp2;          
+                temp1 <= std_logic_vector((abs(signed('0' & xAddress) - signed('0' & xPoint))));  
+                temp2 <= std_logic_vector((abs(signed('0' & yAddress) - signed('0' & yPoint)))); 
+--                tempDistance := temp1 + temp2; 
+                --tempDistance <= std_logic_vector(abs(signed('0' & xAddress) - signed('0' & xPoint)) + abs(signed('0' & yAddress) - signed('0' & yPoint)));           
                 --tempDistance <= std_logic_vector(resize((abs(signed(xAddress) - signed(xPoint))), 9) + resize(abs(signed(yAddress) - signed(yPoint)), 9));
-
+                state <= calcDistance2;
+                
+            when calcDistance2 =>
+                tempDistance <= temp1 + temp2;
+                tempDist <= temp1 + temp2;
+                state <= compareDistance;
+                    
+            when compareDistance =>
                 if (tempDistance < bestDistance) then
                     bestDistance <= tempDistance;
-                    outMask := (others => '0');                    
-                    outMask(maskPos-1) := '1'; 
+                    outMask <= (others => '0');                    
+                    outMask(maskPos) <= '1'; 
+                    tempOutMask <= (others => '0');                    
+                    tempOutMask(maskPos) <= '1'; 
                 elsif (tempDistance = bestDistance) then        
-                    outMask(maskPos - 1) := '1';
+                    outMask(maskPos - 1) <= '1';
+                    tempOutMask(maskPos) <= '1';
                 --else  -- not necessary because outMask is already at 0 from the beginning
                 --  outMask(maskPos - 1) <= '0';
                 end if;
+                maskPos <= maskPos + 1;
                  
-                if (cnt = 19) then
-                    
+                if (cnt > 18) then                    
                     state <= waitAgain;
                 else
                     state <= read;
@@ -194,8 +196,7 @@ begin
                 o_address <= "0000000000010011";
                 o_data <= outMask;
                 o_en <= '1';
-                o_we <= '1';
-                
+                o_we <= '1';                
                 state <= load;
              
             when load =>

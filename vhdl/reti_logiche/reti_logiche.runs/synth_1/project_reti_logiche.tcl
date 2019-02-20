@@ -18,6 +18,10 @@ proc create_report { reportName command } {
   }
 }
 set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a200tfbg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -41,7 +45,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top project_reti_logiche -part xc7a200tfbg484-1
+synth_design -top project_reti_logiche -part xc7a200tfbg484-1 -flatten_hierarchy none
 
 
 # disable binary constraint mode for synth run checkpoints

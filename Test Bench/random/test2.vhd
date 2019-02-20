@@ -23,7 +23,7 @@ architecture bhv of autogen_test_bench_4 is
 
 	type ram_type is array (65535 downto 0) of std_logic_vector(7 downto 0);
 	signal RAM: ram_type := (
-		0 => "01000000",
+		0 => "11000000",
 		1 => std_logic_vector(to_unsigned(169, 8)),
 		2 => std_logic_vector(to_unsigned(143, 8)),
 		3 => std_logic_vector(to_unsigned(169, 8)),
@@ -45,7 +45,7 @@ architecture bhv of autogen_test_bench_4 is
 		others => (others =>'0')
 	);
 
-	constant EXPECTED_OUTPUT : std_logic_vector(7 downto 0) := "01000000";
+	constant EXPECTED_OUTPUT : std_logic_vector(7 downto 0) := "10000000";
 
 	component project_reti_logiche is
 		port (

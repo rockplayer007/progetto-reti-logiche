@@ -2,3 +2,6 @@ Running: xsim.dir/autogen_test_bench_3_behav/xsimk.exe -simmode gui -wdb autogen
 Design successfully loaded
 Design Loading Memory Usage: 6528 KB (Peak: 6528 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9600 KB (Peak: 9600 KB)
+Simulation CPU Usage: 62 ms

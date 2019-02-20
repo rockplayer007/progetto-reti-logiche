@@ -1,0 +1,5 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Failure: TEST FALLITO
+Time: 4850100 ps  Iteration: 2  Process: /autogen_test_bench_4/test  File: C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/random/test2.vhd
+$finish called at time : 4850100 ps : File "C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/random/test2.vhd" Line 113

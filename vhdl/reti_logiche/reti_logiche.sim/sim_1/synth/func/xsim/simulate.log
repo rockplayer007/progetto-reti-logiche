@@ -1,0 +1,5 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Failure: Simulation Ended!, TEST PASSATO
+Time: 8850100 ps  Iteration: 2  Process: /project_tb/test  File: C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/Test+Bench+di+Esempio.vhd
+$finish called at time : 8850100 ps : File "C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/Test+Bench+di+Esempio.vhd" Line 127

@@ -25,7 +25,7 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture behavioral of project_reti_logiche is
-    type stateType is (reset, read, waitClock, readData, calcDistance, calcDistance2, compareDistance, load, waitAgain, last);
+    type stateType is (reset, read, waitClock, readData, calcDistance, compareDistance, load, waitAgain, last);
     type addressRead is (readMask, readXPoint, readYPoint, readXCoord, readYCoord);
     signal state: stateType;
     
@@ -162,17 +162,19 @@ begin
                             
                 
             when calcDistance => 
+                --best way to do it
+                --temp1 <= std_logic_vector((abs(signed('0' & xAddress) - signed('0' & xPoint))));  
+                --temp2 <= std_logic_vector((abs(signed('0' & yAddress) - signed('0' & yPoint)))); 
+                --state <= calcDistance2;
                 
-                temp1 <= std_logic_vector((abs(signed('0' & xAddress) - signed('0' & xPoint))));  
-                temp2 <= std_logic_vector((abs(signed('0' & yAddress) - signed('0' & yPoint)))); 
---                tempDistance := temp1 + temp2; 
-                --tempDistance <= std_logic_vector(abs(signed('0' & xAddress) - signed('0' & xPoint)) + abs(signed('0' & yAddress) - signed('0' & yPoint)));           
-                --tempDistance <= std_logic_vector(resize((abs(signed(xAddress) - signed(xPoint))), 9) + resize(abs(signed(yAddress) - signed(yPoint)), 9));
-                state <= calcDistance2;
-                
-            when calcDistance2 =>
-                tempDistance <= temp1 + temp2;
+                --risky but also working 
+                tempDistance <= std_logic_vector((abs(signed('0' & xAddress) - signed('0' & xPoint)))) + std_logic_vector((abs(signed('0' & yAddress) - signed('0' & yPoint)))); 
                 state <= compareDistance;
+ 
+                
+--            when calcDistance2 =>
+--                tempDistance <= temp1 + temp2;
+--                state <= compareDistance;
                     
             when compareDistance =>
                 if (tempDistance < bestDistance) then

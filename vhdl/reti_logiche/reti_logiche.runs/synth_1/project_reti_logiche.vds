@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu Feb 21 00:55:48 2019
-# Process ID: 21528
+# Start of session at: Fri Feb 22 13:56:24 2019
+# Process ID: 23832
 # Current directory: C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.runs/synth_1
 # Command line: vivado.exe -log project_reti_logiche.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source project_reti_logiche.tcl
 # Log file: C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.runs/synth_1/project_reti_logiche.vds
@@ -15,65 +15,48 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9960 
+INFO: Helper process launched with PID 4468 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 355.691 ; gain = 98.832
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 355.965 ; gain = 99.020
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'project_reti_logiche' [C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.srcs/sources_1/new/reti_logiche.vhd:27]
-WARNING: [Synth 8-3848] Net tempAddress in module/entity project_reti_logiche does not have driver. [C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.srcs/sources_1/new/reti_logiche.vhd:16]
 INFO: [Synth 8-256] done synthesizing module 'project_reti_logiche' (1#1) [C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.srcs/sources_1/new/reti_logiche.vhd:27]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[15]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[14]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[13]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[12]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[11]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[10]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[9]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[8]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[7]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[6]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[5]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[4]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[3]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[2]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[1]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 410.609 ; gain = 153.750
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 410.762 ; gain = 153.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 410.609 ; gain = 153.750
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 410.762 ; gain = 153.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 410.609 ; gain = 153.750
----------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 410.762 ; gain = 153.816
 INFO: [Device 21-403] Loading part xc7a200tfbg484-1
+---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'project_reti_logiche'
-INFO: [Synth 8-5546] ROM "mask" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "mask" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                   reset |                       0000000001 |                             0000
-                    read |                       0000000010 |                             0001
-               waitclock |                       0000000100 |                             0010
-                readdata |                       0000001000 |                             0011
-            calcdistance |                       0000010000 |                             0100
-           calcdistance2 |                       0000100000 |                             0101
-         comparedistance |                       0001000000 |                             0110
-               waitagain |                       0010000000 |                             1000
-                    load |                       0100000000 |                             0111
-                    last |                       1000000000 |                             1001
+                   reset |                             0000 |                             0000
+                    read |                             0001 |                             0001
+               waitclock |                             0010 |                             0010
+                readdata |                             0011 |                             0011
+            calcdistance |                             0100 |                             0100
+           calcdistance2 |                             0101 |                             0101
+         comparedistance |                             0110 |                             0110
+               waitagain |                             0111 |                             1000
+                    load |                             1000 |                             0111
+                    last |                             1001 |                             1001
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'project_reti_logiche'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'project_reti_logiche'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 410.609 ; gain = 153.750
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 410.762 ; gain = 153.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -90,32 +73,29 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit       Adders := 1     
 	   3 Input      9 Bit       Adders := 2     
 	   2 Input      9 Bit       Adders := 3     
-	   2 Input      5 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
 	               16 Bit    Registers := 2     
-	                9 Bit    Registers := 5     
-	                8 Bit    Registers := 8     
-	                5 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 7     
+	                3 Bit    Registers := 2     
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
 	  10 Input     16 Bit        Muxes := 2     
-	  10 Input     10 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 6     
-	   4 Input     10 Bit        Muxes := 2     
 	   2 Input      9 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 5     
-	  10 Input      8 Bit        Muxes := 4     
-	  10 Input      5 Bit        Muxes := 1     
-	  10 Input      3 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	  10 Input      8 Bit        Muxes := 2     
+	  24 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   4 Input      3 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 11    
-	   4 Input      1 Bit        Muxes := 7     
-	  10 Input      1 Bit        Muxes := 13    
+	   2 Input      1 Bit        Muxes := 15    
+	   4 Input      1 Bit        Muxes := 9     
+	   6 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 18    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -129,32 +109,29 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit       Adders := 1     
 	   3 Input      9 Bit       Adders := 2     
 	   2 Input      9 Bit       Adders := 3     
-	   2 Input      5 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
 	               16 Bit    Registers := 2     
-	                9 Bit    Registers := 5     
-	                8 Bit    Registers := 8     
-	                5 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 7     
+	                3 Bit    Registers := 2     
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
 	  10 Input     16 Bit        Muxes := 2     
-	  10 Input     10 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 6     
-	   4 Input     10 Bit        Muxes := 2     
 	   2 Input      9 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 5     
-	  10 Input      8 Bit        Muxes := 4     
-	  10 Input      5 Bit        Muxes := 1     
-	  10 Input      3 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	  10 Input      8 Bit        Muxes := 2     
+	  24 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   4 Input      3 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 11    
-	   4 Input      1 Bit        Muxes := 7     
-	  10 Input      1 Bit        Muxes := 13    
+	   2 Input      1 Bit        Muxes := 15    
+	   4 Input      1 Bit        Muxes := 9     
+	   6 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 18    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -172,26 +149,10 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[15]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[14]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[13]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[12]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[11]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[10]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[9]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[8]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[7]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[6]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[5]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[4]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[3]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[2]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[1]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port tempAddress[0]
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (o_en_reg)
 WARNING: [Synth 8-3332] Sequential element (o_en_reg) is unused and will be removed from module project_reti_logiche.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 604.563 ; gain = 347.703
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -204,7 +165,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 604.563 ; gain = 347.703
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -216,7 +177,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 604.566 ; gain = 347.707
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -234,7 +195,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 604.566 ; gain = 347.707
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -247,7 +208,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 604.566 ; gain = 347.707
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -259,7 +220,7 @@ Report RTL Partitions:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 604.566 ; gain = 347.707
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -277,32 +238,31 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     1|
 |2     |CARRY4 |    16|
-|3     |LUT2   |    37|
-|4     |LUT3   |    20|
-|5     |LUT4   |    19|
-|6     |LUT5   |    22|
-|7     |LUT6   |    38|
+|3     |LUT2   |    40|
+|4     |LUT3   |    15|
+|5     |LUT4   |    24|
+|6     |LUT5   |    20|
+|7     |LUT6   |    50|
 |8     |MUXF7  |     1|
-|9     |FDRE   |   161|
-|10    |IBUF   |    10|
-|11    |OBUF   |    44|
-|12    |OBUFT  |    16|
+|9     |FDRE   |   136|
+|10    |IBUF   |    11|
+|11    |OBUF   |    27|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   385|
+|1     |top      |       |   341|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 604.566 ; gain = 347.707
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 603.617 ; gain = 346.672
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 34 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 604.566 ; gain = 347.707
-Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 604.566 ; gain = 347.707
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 603.617 ; gain = 346.672
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 603.617 ; gain = 346.672
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 28 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -310,11 +270,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-18 Infos, 34 Warnings, 0 Critical Warnings and 0 Errors encountered.
+18 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 706.887 ; gain = 462.902
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 707.070 ; gain = 462.945
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.runs/synth_1/project_reti_logiche.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file project_reti_logiche_utilization_synth.rpt -pb project_reti_logiche_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 706.887 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 21 00:56:10 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.213 . Memory (MB): peak = 707.070 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 22 13:56:59 2019...

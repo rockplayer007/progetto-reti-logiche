@@ -13,9 +13,9 @@ entity project_reti_logiche is
         i_data: in std_logic_vector(7 downto 0);
         o_address: out std_logic_vector(15 downto 0);
         -----------
-        tempAddress: out std_logic_vector(15 downto 0);
-        tempOutMask: out std_logic_vector (7 downto 0);
-        tempDist: out std_logic_vector(8 downto 0);
+        --tempAddress: out std_logic_vector(15 downto 0);
+        --tempOutMask: out std_logic_vector (7 downto 0);
+        --tempDist: out std_logic_vector(8 downto 0);
         
         o_done: out std_logic;
         o_en: out std_logic;
@@ -26,8 +26,13 @@ end project_reti_logiche;
 
 architecture behavioral of project_reti_logiche is
     type stateType is (reset, read, waitClock, readData, calcDistance, calcDistance2, compareDistance, load, waitAgain, last);
+    type addressRead is (readMask, readXPoint, readYPoint, readXCoord, readYCoord);
     signal state: stateType;
-    signal cnt: integer range 0 to 20;
+    
+    signal cnt: addressRead;
+    
+    
+    --signal cnt: integer range 0 to 20;
     signal mask: std_logic_vector(7 downto 0);
     signal maskPos: integer range 0 to 7;
     signal outMask: std_logic_vector(7 downto 0);
@@ -69,60 +74,61 @@ begin
                 if (i_start = '0') then
                     state <= reset;
                 elsif (i_start = '1') then  -- initializing all the variables
-                    cnt <= 0;
+                    cnt <= readMask;
                     
                     currentAddress <= "0000000000000000";
-                    mask <= (others => '0');
-                    maskPos <= 0;                    
+                    --mask <= (others => '0');                    
                     outMask <= (others => '0');
-                    tempOutMask <= (others => '0');
+                    maskPos <= 0;
                     
-                    --bestDistance <= (others => '1');  -- 511 max distance is 255+255=510
-                    --tempDistance <= (others => '1');
                     o_en <= '1';
                     o_we <= '0';
                     state <= read;
                 end if;
                 o_done <= '0';
-             
-             when read =>
                 
-                if (cnt = 0) then  -- read the first address for the mask
-                    currentAddress <= "0000000000010001";
+             
+             
+             when read =>  
+                
+                if (cnt = readMask) then  -- read the first address for the mask
                     o_address <= currentAddress;
+                    currentAddress <= "0000000000010001";
                     state <= waitClock;
                     
-                elsif (cnt = 1) then  -- read the 17 and 18 for the coordinates of the point
-                    currentAddress <= "0000000000010010";
+                elsif (cnt = readXPoint) then  -- read the 17 and 18 for the coordinates of the point
                     o_address <= currentAddress;
+                    currentAddress <= "0000000000010010";
                     state <= waitClock;  
                            
-                elsif (cnt = 2) then
+                elsif (cnt = readYPoint) then
+                    o_address <= currentAddress;
+                    
                     if (mask(maskPos) = '1') then
                         currentAddress <= "0000000000000001";  -- if the maks bit is 1 start reading the first centroid                                                         
                     else    
                         currentAddress <= "0000000000000011";  -- otherwhise dont read it, go to the next address    
-                                                                
+                        maskPos <= 1;                                                                
                     end if;
                     state <= waitClock;
-                    o_address <= currentAddress;
 
-                elsif (cnt > 2 and cnt < 19) then                   
-                    if (mask(maskPos) = '1') then
-                        currentAddress <= currentAddress + "0000000000000001";                                      
-                        state <= waitClock;                       
-                    else 
-                        currentAddress <= currentAddress + "0000000000000010";
-                        cnt <= cnt + 2;
-                        maskPos <= maskPos + 1;
-                        state <= read;  
-                        
-                    end if;
+                elsif (cnt = readXCoord or cnt = readYCoord) then
                     o_address <= currentAddress;
-                    
-                else  -- when cnt = 19
-                    state <= waitAgain;
-                                    
+                    if (currentAddress > "000000000010000") then  -- when address >= 17 
+                        state <= waitAgain; 
+                    else              
+                        if (mask(maskPos) = '1') then
+                            currentAddress <= currentAddress + "0000000000000001";                                      
+                            state <= waitClock;                       
+                        else 
+                            currentAddress <= currentAddress + "0000000000000010";
+                            cnt <= readXCoord;
+                            maskPos <= maskPos + 1;
+                            state <= read;                          
+                        end if;    
+                    end if;
+                
+                                                       
                 end if;
                 
              when waitClock =>  -- this state allows to read in the data from the memory in this clock cycle
@@ -130,32 +136,30 @@ begin
                              
              when readData =>
                 
-                if (cnt = 0) then                    
+                if (cnt = readMask) then                    
                     mask <= i_data;
                     state <= read;
-                elsif (cnt = 1) then
+                    cnt <= readXPoint;
+                elsif (cnt = readXPoint) then
                     xPoint <= i_data;
                     state <= read;
-                elsif (cnt = 2) then
+                    cnt <= readYPoint;
+                elsif (cnt = readYPoint) then
                     yPoint <= i_data;
                     state <= read;
-                    if (mask(maskPos) = '1') then
-                        maskPos <= 1; 
-                        cnt <= cnt + 2;
-                    end if;
+                    cnt <= readXCoord;
                         
-                elsif (cnt > 2) then                                   
-                    if (currentAddress(0) = '0') then -- take first x then y coordinates
-                        xAddress <= i_data;
+                elsif (cnt = ReadXCoord) then           
+                        xAddress <= i_data;                        
+                        cnt <= ReadYCoord;
                         state <= read;
-                    else          
-                        yAddress <= i_data;                                            
-                        --maskPos <= maskPos + 1; 
+                elsif (cnt = ReadYCoord) then       
+                        yAddress <= i_data; 
+                        cnt <= readXCoord;    
                         state <= calcDistance;                           
-                    end if;    
-                    
+                                           
                 end if;
-                cnt <= cnt + 1;            
+                            
                 
             when calcDistance => 
                 
@@ -168,25 +172,21 @@ begin
                 
             when calcDistance2 =>
                 tempDistance <= temp1 + temp2;
-                tempDist <= temp1 + temp2;
                 state <= compareDistance;
                     
             when compareDistance =>
                 if (tempDistance < bestDistance) then
                     bestDistance <= tempDistance;
                     outMask <= (others => '0');                    
-                    outMask(maskPos) <= '1'; 
-                    tempOutMask <= (others => '0');                    
-                    tempOutMask(maskPos) <= '1'; 
+                    outMask(maskPos) <= '1';                     
                 elsif (tempDistance = bestDistance) then        
-                    outMask(maskPos - 1) <= '1';
-                    tempOutMask(maskPos) <= '1';
+                    outMask(maskPos) <= '1';                   
                 --else  -- not necessary because outMask is already at 0 from the beginning
                 --  outMask(maskPos - 1) <= '0';
                 end if;
                 maskPos <= maskPos + 1;
                  
-                if (cnt > 18) then                    
+                if (currentAddress > "000000000010000") then                    
                     state <= waitAgain;
                 else
                     state <= read;

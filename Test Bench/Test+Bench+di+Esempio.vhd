@@ -9,7 +9,7 @@ end project_tb;
 architecture projecttb of project_tb is
 constant c_CLOCK_PERIOD		: time := 100 ns;
 signal   tb_done		: std_logic;
-signal   mem_address		: std_logic_vector (15 downto 0) := (others => 0');
+signal   mem_address		: std_logic_vector (15 downto 0) := (others => '0');
 signal   tb_rst	                : std_logic := '0';
 signal   tb_start		: std_logic := '0';
 signal   tb_clk		        : std_logic := '0';
@@ -20,25 +20,25 @@ signal   mem_we		        : std_logic;
 type ram_type is array (65535 downto 0) of std_logic_vector(7 downto 0);
 
 -- come da esempio su specifica
-signal RAM: ram_type := (0 => std_logic_vector(to_unsigned( 185 , 8)),
-                         1 => std_logic_vector(to_unsigned( 75 , 8)),
-                         2 => std_logic_vector(to_unsigned( 32 , 8)),
-                         3 => std_logic_vector(to_unsigned( 111 , 8)),
-                         4 => std_logic_vector(to_unsigned( 213 , 8)),
-                         5 => std_logic_vector(to_unsigned( 79 , 8)),
-                         6 => std_logic_vector(to_unsigned( 33 , 8)),
-                         7 => std_logic_vector(to_unsigned( 1 , 8)),
-                         8 => std_logic_vector(to_unsigned( 33 , 8)),
-                         9 => std_logic_vector(to_unsigned( 80 , 8)),
-                         10 => std_logic_vector(to_unsigned( 35 , 8)),
-                         11 => std_logic_vector(to_unsigned( 12 , 8)),
-                         12 => std_logic_vector(to_unsigned( 254 , 8)),
-                         13 => std_logic_vector(to_unsigned( 215 , 8)),
-                         14 => std_logic_vector(to_unsigned( 78 , 8)),
-                         15 => std_logic_vector(to_unsigned( 211 , 8)),
-                         16 => std_logic_vector(to_unsigned( 121 , 8)),
-                         17 => std_logic_vector(to_unsigned( 78 , 8)),
-                         18 => std_logic_vector(to_unsigned( 33 , 8)),
+signal RAM: ram_type := (0 => std_logic_vector(to_unsigned( 255 , 8)),
+                         1 => std_logic_vector(to_unsigned( 0, 8)),
+                         2 => std_logic_vector(to_unsigned( 0, 8)),
+                         3 => std_logic_vector(to_unsigned( 0 , 8)),
+                         4 => std_logic_vector(to_unsigned( 0 , 8)),
+                         5 => std_logic_vector(to_unsigned( 0, 8)),
+                         6 => std_logic_vector(to_unsigned( 0, 8)),
+                         7 => std_logic_vector(to_unsigned( 0, 8)),
+                         8 => std_logic_vector(to_unsigned( 0 , 8)),
+                         9 => std_logic_vector(to_unsigned( 0 , 8)),
+                         10 => std_logic_vector(to_unsigned(0 , 8)),
+                         11 => std_logic_vector(to_unsigned(0 , 8)),
+                         12 => std_logic_vector(to_unsigned(0 , 8)),
+                         13 => std_logic_vector(to_unsigned(0 , 8)),
+                         14 => std_logic_vector(to_unsigned(0, 8)),
+                         15 => std_logic_vector(to_unsigned(0 , 8)),
+                         16 => std_logic_vector(to_unsigned(0 , 8)),
+                         17 => std_logic_vector(to_unsigned( 0 , 8)),
+                         18 => std_logic_vector(to_unsigned( 0 , 8)),
 			 others => (others =>'0'));
 
 component project_reti_logiche is
@@ -101,14 +101,28 @@ begin
     tb_rst <= '0';
     wait for c_CLOCK_PERIOD;
     tb_start <= '1';
-    wait for c_CLOCK_PERIOD;
+--    wait for c_CLOCK_PERIOD;
+--    wait until tb_done = '1';
+--    wait for c_CLOCK_PERIOD;
+--    tb_start <= '0';
+--    wait until tb_done = '0';
+    
+    wait for 800 ns;         
+    wait for c_CLOCK_PERIOD; 
+    tb_rst <= '1';           
+    wait for c_CLOCK_PERIOD; 
+    tb_rst <= '0';           
+    wait for c_CLOCK_PERIOD; 
+    tb_start <= '1';         
+    wait for c_CLOCK_PERIOD; 
     wait until tb_done = '1';
-    wait for c_CLOCK_PERIOD;
-    tb_start <= '0';
+    wait for c_CLOCK_PERIOD; 
+    tb_start <= '0';         
     wait until tb_done = '0';
+    
 
     -- Maschera di output = 00010001
-    assert RAM(19) = std_logic_vector(to_unsigned( 17 , 8)) report "TEST FALLITO" severity failure;
+    assert RAM(19) = std_logic_vector(to_unsigned( 255 , 8)) report "TEST FALLITO" severity failure;
  
     assert false report "Simulation Ended!, TEST PASSATO" severity failure;
 end process test;

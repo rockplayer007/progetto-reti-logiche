@@ -80,7 +80,8 @@ begin
                     --mask <= (others => '0');                    
                     outMask <= (others => '0');
                     maskPos <= 0;
-                    
+                    bestDistance <= (others => '1');
+                    o_done <= '0';
                     o_en <= '1';
                     o_we <= '0';
                     state <= read;

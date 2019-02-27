@@ -1,0 +1,6 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}Specifiche di progetto}{2}{section.1}
+\contentsline {section}{\numberline {2}Scelte progettuali}{2}{section.2}
+\contentsline {section}{\numberline {3}Risultati dei test}{3}{section.3}
+\contentsline {section}{\numberline {4}Risultati della sintesi}{3}{section.4}

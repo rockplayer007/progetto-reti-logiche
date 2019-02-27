@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Tue Feb 26 18:53:14 2019
+-- Date        : Tue Feb 26 19:04:01 2019
 -- Host        : ComputerDiRoland running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -mode funcsim -nolib -force -file {C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo
 --               anno/lezioni/primo semestre/reti
@@ -82,30 +82,32 @@ architecture STRUCTURE of project_reti_logiche is
   signal L : STD_LOGIC_VECTOR ( 7 downto 1 );
   signal L2 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal R2 : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal bestDistance : STD_LOGIC;
+  signal bestDistance : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \bestDistance[0]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[1]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[2]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[3]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[4]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[5]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[6]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[7]_i_1_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_10_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_11_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_12_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_13_n_0\ : STD_LOGIC;
-  signal \bestDistance[8]_i_4_n_0\ : STD_LOGIC;
-  signal \bestDistance[8]_i_5_n_0\ : STD_LOGIC;
+  signal \bestDistance[8]_i_14_n_0\ : STD_LOGIC;
+  signal \bestDistance[8]_i_15_n_0\ : STD_LOGIC;
+  signal \bestDistance[8]_i_1_n_0\ : STD_LOGIC;
+  signal \bestDistance[8]_i_2_n_0\ : STD_LOGIC;
+  signal \bestDistance[8]_i_3_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_6_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_7_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_8_n_0\ : STD_LOGIC;
   signal \bestDistance[8]_i_9_n_0\ : STD_LOGIC;
-  signal \bestDistance_reg[8]_i_3_n_0\ : STD_LOGIC;
-  signal \bestDistance_reg[8]_i_3_n_1\ : STD_LOGIC;
-  signal \bestDistance_reg[8]_i_3_n_2\ : STD_LOGIC;
-  signal \bestDistance_reg[8]_i_3_n_3\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[0]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[1]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[2]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[3]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[4]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[5]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[6]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[7]\ : STD_LOGIC;
-  signal \bestDistance_reg_n_0_[8]\ : STD_LOGIC;
+  signal \bestDistance_reg[8]_i_5_n_0\ : STD_LOGIC;
+  signal \bestDistance_reg[8]_i_5_n_1\ : STD_LOGIC;
+  signal \bestDistance_reg[8]_i_5_n_2\ : STD_LOGIC;
+  signal \bestDistance_reg[8]_i_5_n_3\ : STD_LOGIC;
   signal cnt : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \cnt[0]_i_1_n_0\ : STD_LOGIC;
   signal \cnt[1]_i_1_n_0\ : STD_LOGIC;
@@ -199,24 +201,30 @@ architecture STRUCTURE of project_reti_logiche is
   signal o_we_i_1_n_0 : STD_LOGIC;
   signal outMask : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \outMask[0]_i_1_n_0\ : STD_LOGIC;
+  signal \outMask[0]_i_2_n_0\ : STD_LOGIC;
   signal \outMask[1]_i_1_n_0\ : STD_LOGIC;
+  signal \outMask[1]_i_2_n_0\ : STD_LOGIC;
   signal \outMask[2]_i_1_n_0\ : STD_LOGIC;
+  signal \outMask[2]_i_2_n_0\ : STD_LOGIC;
   signal \outMask[3]_i_1_n_0\ : STD_LOGIC;
+  signal \outMask[3]_i_2_n_0\ : STD_LOGIC;
   signal \outMask[4]_i_1_n_0\ : STD_LOGIC;
   signal \outMask[4]_i_2_n_0\ : STD_LOGIC;
   signal \outMask[5]_i_1_n_0\ : STD_LOGIC;
   signal \outMask[5]_i_2_n_0\ : STD_LOGIC;
+  signal \outMask[5]_i_3_n_0\ : STD_LOGIC;
   signal \outMask[6]_i_1_n_0\ : STD_LOGIC;
   signal \outMask[6]_i_2_n_0\ : STD_LOGIC;
+  signal \outMask[6]_i_3_n_0\ : STD_LOGIC;
+  signal \outMask[6]_i_5_n_0\ : STD_LOGIC;
+  signal \outMask[6]_i_6_n_0\ : STD_LOGIC;
+  signal \outMask[6]_i_7_n_0\ : STD_LOGIC;
+  signal \outMask[6]_i_8_n_0\ : STD_LOGIC;
   signal \outMask[7]_i_1_n_0\ : STD_LOGIC;
   signal \outMask[7]_i_2_n_0\ : STD_LOGIC;
-  signal \outMask[7]_i_4_n_0\ : STD_LOGIC;
-  signal \outMask[7]_i_5_n_0\ : STD_LOGIC;
-  signal \outMask[7]_i_6_n_0\ : STD_LOGIC;
-  signal \outMask[7]_i_7_n_0\ : STD_LOGIC;
-  signal \outMask[7]_i_8_n_0\ : STD_LOGIC;
-  signal \outMask_reg[7]_i_3_n_2\ : STD_LOGIC;
-  signal \outMask_reg[7]_i_3_n_3\ : STD_LOGIC;
+  signal \outMask[7]_i_3_n_0\ : STD_LOGIC;
+  signal \outMask_reg[6]_i_4_n_2\ : STD_LOGIC;
+  signal \outMask_reg[6]_i_4_n_3\ : STD_LOGIC;
   signal plusOp : STD_LOGIC_VECTOR ( 8 downto 0 );
   signal tempDistance : STD_LOGIC;
   attribute RTL_KEEP of tempDistance : signal is "yes";
@@ -311,12 +319,12 @@ architecture STRUCTURE of project_reti_logiche is
   signal \yPoint_reg_n_0_[5]\ : STD_LOGIC;
   signal \yPoint_reg_n_0_[6]\ : STD_LOGIC;
   signal \yPoint_reg_n_0_[7]\ : STD_LOGIC;
-  signal \NLW_bestDistance_reg[8]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
-  signal \NLW_bestDistance_reg[8]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_bestDistance_reg[8]_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_bestDistance_reg[8]_i_4_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW_bestDistance_reg[8]_i_4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_bestDistance_reg[8]_i_5_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_currentAddress_reg[15]_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal \NLW_outMask_reg[7]_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal \NLW_outMask_reg[7]_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_outMask_reg[6]_i_4_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_outMask_reg[6]_i_4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_tempDistance_reg[7]_i_12_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
   signal \NLW_tempDistance_reg[7]_i_12_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_tempDistance_reg[8]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -324,8 +332,9 @@ architecture STRUCTURE of project_reti_logiche is
   signal \NLW_tempDistance_reg[8]_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
   signal \NLW_tempDistance_reg[8]_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_state[0]_i_3\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_4\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[0]_i_3\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_4\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_7\ : label is "soft_lutpair2";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[0]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
   attribute KEEP : string;
@@ -346,10 +355,19 @@ architecture STRUCTURE of project_reti_logiche is
   attribute KEEP of \FSM_onehot_state_reg[7]\ : label is "yes";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[8]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[8]\ : label is "yes";
-  attribute SOFT_HLUTNM of \currentAddress[4]_i_2\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \currentAddress[4]_i_3\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \tempDistance[7]_i_11\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \tempDistance[7]_i_13\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \cnt[2]_i_4\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \currentAddress[4]_i_2\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \currentAddress[4]_i_3\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \maskPos[2]_i_2\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \outMask[0]_i_2\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \outMask[2]_i_2\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \outMask[3]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \outMask[4]_i_2\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \outMask[5]_i_2\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \outMask[6]_i_5\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \outMask[7]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \tempDistance[7]_i_11\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \tempDistance[7]_i_13\ : label is "soft_lutpair1";
 begin
 \FSM_onehot_state[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -472,14 +490,14 @@ begin
     );
 \FSM_onehot_state[2]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FEAAAAAABAAAAAAA"
+      INIT => X"FAAAEAAABAAAAAAA"
     )
         port map (
       I0 => \FSM_onehot_state[2]_i_5_n_0\,
       I1 => \maskPos_reg_n_0_[2]\,
-      I2 => \mask_reg_n_0_[3]\,
+      I2 => \maskPos_reg_n_0_[1]\,
       I3 => \maskPos_reg_n_0_[0]\,
-      I4 => \maskPos_reg_n_0_[1]\,
+      I4 => \mask_reg_n_0_[3]\,
       I5 => \mask_reg_n_0_[7]\,
       O => \FSM_onehot_state[2]_i_3_n_0\
     );
@@ -820,35 +838,109 @@ begin
       Q => \FSM_onehot_state_reg_n_0_[8]\,
       R => '0'
     );
-\bestDistance[8]_i_1\: unisim.vcomponents.LUT2
+\bestDistance[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[5]\,
-      I1 => ltOp,
-      O => bestDistance
+      I1 => \tempDistance__0\(0),
+      O => \bestDistance[0]_i_1_n_0\
+    );
+\bestDistance[1]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(1),
+      O => \bestDistance[1]_i_1_n_0\
+    );
+\bestDistance[2]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(2),
+      O => \bestDistance[2]_i_1_n_0\
+    );
+\bestDistance[3]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(3),
+      O => \bestDistance[3]_i_1_n_0\
+    );
+\bestDistance[4]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(4),
+      O => \bestDistance[4]_i_1_n_0\
+    );
+\bestDistance[5]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(5),
+      O => \bestDistance[5]_i_1_n_0\
+    );
+\bestDistance[6]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(6),
+      O => \bestDistance[6]_i_1_n_0\
+    );
+\bestDistance[7]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(7),
+      O => \bestDistance[7]_i_1_n_0\
+    );
+\bestDistance[8]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F800"
+    )
+        port map (
+      I0 => ltOp,
+      I1 => \FSM_onehot_state_reg_n_0_[5]\,
+      I2 => i_start_IBUF,
+      I3 => \FSM_onehot_state_reg_n_0_[0]\,
+      O => \bestDistance[8]_i_1_n_0\
     );
 \bestDistance[8]_i_10\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"9009"
+      INIT => X"22B2"
     )
         port map (
-      I0 => \tempDistance__0\(6),
-      I1 => \bestDistance_reg_n_0_[6]\,
-      I2 => \bestDistance_reg_n_0_[7]\,
-      I3 => \tempDistance__0\(7),
+      I0 => bestDistance(3),
+      I1 => \tempDistance__0\(3),
+      I2 => bestDistance(2),
+      I3 => \tempDistance__0\(2),
       O => \bestDistance[8]_i_10_n_0\
     );
 \bestDistance[8]_i_11\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"9009"
+      INIT => X"22B2"
     )
         port map (
-      I0 => \tempDistance__0\(4),
-      I1 => \bestDistance_reg_n_0_[4]\,
-      I2 => \bestDistance_reg_n_0_[5]\,
-      I3 => \tempDistance__0\(5),
+      I0 => bestDistance(1),
+      I1 => \tempDistance__0\(1),
+      I2 => bestDistance(0),
+      I3 => \tempDistance__0\(0),
       O => \bestDistance[8]_i_11_n_0\
     );
 \bestDistance[8]_i_12\: unisim.vcomponents.LUT4
@@ -856,10 +948,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \bestDistance_reg_n_0_[3]\,
-      I1 => \tempDistance__0\(3),
-      I2 => \tempDistance__0\(2),
-      I3 => \bestDistance_reg_n_0_[2]\,
+      I0 => \tempDistance__0\(6),
+      I1 => bestDistance(6),
+      I2 => bestDistance(7),
+      I3 => \tempDistance__0\(7),
       O => \bestDistance[8]_i_12_n_0\
     );
 \bestDistance[8]_i_13\: unisim.vcomponents.LUT4
@@ -867,50 +959,70 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \tempDistance__0\(0),
-      I1 => \bestDistance_reg_n_0_[0]\,
-      I2 => \bestDistance_reg_n_0_[1]\,
-      I3 => \tempDistance__0\(1),
+      I0 => \tempDistance__0\(4),
+      I1 => bestDistance(4),
+      I2 => bestDistance(5),
+      I3 => \tempDistance__0\(5),
       O => \bestDistance[8]_i_13_n_0\
     );
-\bestDistance[8]_i_4\: unisim.vcomponents.LUT2
+\bestDistance[8]_i_14\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => bestDistance(3),
+      I1 => \tempDistance__0\(3),
+      I2 => \tempDistance__0\(2),
+      I3 => bestDistance(2),
+      O => \bestDistance[8]_i_14_n_0\
+    );
+\bestDistance[8]_i_15\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => \tempDistance__0\(0),
+      I1 => bestDistance(0),
+      I2 => bestDistance(1),
+      I3 => \tempDistance__0\(1),
+      O => \bestDistance[8]_i_15_n_0\
+    );
+\bestDistance[8]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[0]\,
+      I1 => i_start_IBUF,
+      I2 => \FSM_onehot_state_reg_n_0_[5]\,
+      I3 => ltOp,
+      O => \bestDistance[8]_i_2_n_0\
+    );
+\bestDistance[8]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \tempDistance__0\(8),
+      O => \bestDistance[8]_i_3_n_0\
+    );
+\bestDistance[8]_i_6\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
     )
         port map (
-      I0 => \bestDistance_reg_n_0_[8]\,
+      I0 => bestDistance(8),
       I1 => \tempDistance__0\(8),
-      O => \bestDistance[8]_i_4_n_0\
+      O => \bestDistance[8]_i_6_n_0\
     );
-\bestDistance[8]_i_5\: unisim.vcomponents.LUT2
+\bestDistance[8]_i_7\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
       I0 => \tempDistance__0\(8),
-      I1 => \bestDistance_reg_n_0_[8]\,
-      O => \bestDistance[8]_i_5_n_0\
-    );
-\bestDistance[8]_i_6\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"22B2"
-    )
-        port map (
-      I0 => \bestDistance_reg_n_0_[7]\,
-      I1 => \tempDistance__0\(7),
-      I2 => \bestDistance_reg_n_0_[6]\,
-      I3 => \tempDistance__0\(6),
-      O => \bestDistance[8]_i_6_n_0\
-    );
-\bestDistance[8]_i_7\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"22B2"
-    )
-        port map (
-      I0 => \bestDistance_reg_n_0_[5]\,
-      I1 => \tempDistance__0\(5),
-      I2 => \bestDistance_reg_n_0_[4]\,
-      I3 => \tempDistance__0\(4),
+      I1 => bestDistance(8),
       O => \bestDistance[8]_i_7_n_0\
     );
 \bestDistance[8]_i_8\: unisim.vcomponents.LUT4
@@ -918,10 +1030,10 @@ begin
       INIT => X"22B2"
     )
         port map (
-      I0 => \bestDistance_reg_n_0_[3]\,
-      I1 => \tempDistance__0\(3),
-      I2 => \bestDistance_reg_n_0_[2]\,
-      I3 => \tempDistance__0\(2),
+      I0 => bestDistance(7),
+      I1 => \tempDistance__0\(7),
+      I2 => bestDistance(6),
+      I3 => \tempDistance__0\(6),
       O => \bestDistance[8]_i_8_n_0\
     );
 \bestDistance[8]_i_9\: unisim.vcomponents.LUT4
@@ -929,140 +1041,140 @@ begin
       INIT => X"22B2"
     )
         port map (
-      I0 => \bestDistance_reg_n_0_[1]\,
-      I1 => \tempDistance__0\(1),
-      I2 => \bestDistance_reg_n_0_[0]\,
-      I3 => \tempDistance__0\(0),
+      I0 => bestDistance(5),
+      I1 => \tempDistance__0\(5),
+      I2 => bestDistance(4),
+      I3 => \tempDistance__0\(4),
       O => \bestDistance[8]_i_9_n_0\
     );
-\bestDistance_reg[0]\: unisim.vcomponents.FDRE
+\bestDistance_reg[0]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(0),
-      Q => \bestDistance_reg_n_0_[0]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[0]_i_1_n_0\,
+      Q => bestDistance(0),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[1]\: unisim.vcomponents.FDRE
+\bestDistance_reg[1]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(1),
-      Q => \bestDistance_reg_n_0_[1]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[1]_i_1_n_0\,
+      Q => bestDistance(1),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[2]\: unisim.vcomponents.FDRE
+\bestDistance_reg[2]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(2),
-      Q => \bestDistance_reg_n_0_[2]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[2]_i_1_n_0\,
+      Q => bestDistance(2),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[3]\: unisim.vcomponents.FDRE
+\bestDistance_reg[3]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(3),
-      Q => \bestDistance_reg_n_0_[3]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[3]_i_1_n_0\,
+      Q => bestDistance(3),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[4]\: unisim.vcomponents.FDRE
+\bestDistance_reg[4]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(4),
-      Q => \bestDistance_reg_n_0_[4]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[4]_i_1_n_0\,
+      Q => bestDistance(4),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[5]\: unisim.vcomponents.FDRE
+\bestDistance_reg[5]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(5),
-      Q => \bestDistance_reg_n_0_[5]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[5]_i_1_n_0\,
+      Q => bestDistance(5),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[6]\: unisim.vcomponents.FDRE
+\bestDistance_reg[6]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(6),
-      Q => \bestDistance_reg_n_0_[6]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[6]_i_1_n_0\,
+      Q => bestDistance(6),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[7]\: unisim.vcomponents.FDRE
+\bestDistance_reg[7]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(7),
-      Q => \bestDistance_reg_n_0_[7]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[7]_i_1_n_0\,
+      Q => bestDistance(7),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[8]\: unisim.vcomponents.FDRE
+\bestDistance_reg[8]\: unisim.vcomponents.FDSE
     generic map(
       INIT => '1'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => bestDistance,
-      D => \tempDistance__0\(8),
-      Q => \bestDistance_reg_n_0_[8]\,
-      R => '0'
+      CE => \bestDistance[8]_i_2_n_0\,
+      D => \bestDistance[8]_i_3_n_0\,
+      Q => bestDistance(8),
+      S => \bestDistance[8]_i_1_n_0\
     );
-\bestDistance_reg[8]_i_2\: unisim.vcomponents.CARRY4
+\bestDistance_reg[8]_i_4\: unisim.vcomponents.CARRY4
      port map (
-      CI => \bestDistance_reg[8]_i_3_n_0\,
-      CO(3 downto 1) => \NLW_bestDistance_reg[8]_i_2_CO_UNCONNECTED\(3 downto 1),
+      CI => \bestDistance_reg[8]_i_5_n_0\,
+      CO(3 downto 1) => \NLW_bestDistance_reg[8]_i_4_CO_UNCONNECTED\(3 downto 1),
       CO(0) => ltOp,
       CYINIT => '0',
       DI(3 downto 1) => B"000",
-      DI(0) => \bestDistance[8]_i_4_n_0\,
-      O(3 downto 0) => \NLW_bestDistance_reg[8]_i_2_O_UNCONNECTED\(3 downto 0),
+      DI(0) => \bestDistance[8]_i_6_n_0\,
+      O(3 downto 0) => \NLW_bestDistance_reg[8]_i_4_O_UNCONNECTED\(3 downto 0),
       S(3 downto 1) => B"000",
-      S(0) => \bestDistance[8]_i_5_n_0\
+      S(0) => \bestDistance[8]_i_7_n_0\
     );
-\bestDistance_reg[8]_i_3\: unisim.vcomponents.CARRY4
+\bestDistance_reg[8]_i_5\: unisim.vcomponents.CARRY4
      port map (
       CI => '0',
-      CO(3) => \bestDistance_reg[8]_i_3_n_0\,
-      CO(2) => \bestDistance_reg[8]_i_3_n_1\,
-      CO(1) => \bestDistance_reg[8]_i_3_n_2\,
-      CO(0) => \bestDistance_reg[8]_i_3_n_3\,
+      CO(3) => \bestDistance_reg[8]_i_5_n_0\,
+      CO(2) => \bestDistance_reg[8]_i_5_n_1\,
+      CO(1) => \bestDistance_reg[8]_i_5_n_2\,
+      CO(0) => \bestDistance_reg[8]_i_5_n_3\,
       CYINIT => '0',
-      DI(3) => \bestDistance[8]_i_6_n_0\,
-      DI(2) => \bestDistance[8]_i_7_n_0\,
-      DI(1) => \bestDistance[8]_i_8_n_0\,
-      DI(0) => \bestDistance[8]_i_9_n_0\,
-      O(3 downto 0) => \NLW_bestDistance_reg[8]_i_3_O_UNCONNECTED\(3 downto 0),
-      S(3) => \bestDistance[8]_i_10_n_0\,
-      S(2) => \bestDistance[8]_i_11_n_0\,
-      S(1) => \bestDistance[8]_i_12_n_0\,
-      S(0) => \bestDistance[8]_i_13_n_0\
+      DI(3) => \bestDistance[8]_i_8_n_0\,
+      DI(2) => \bestDistance[8]_i_9_n_0\,
+      DI(1) => \bestDistance[8]_i_10_n_0\,
+      DI(0) => \bestDistance[8]_i_11_n_0\,
+      O(3 downto 0) => \NLW_bestDistance_reg[8]_i_5_O_UNCONNECTED\(3 downto 0),
+      S(3) => \bestDistance[8]_i_12_n_0\,
+      S(2) => \bestDistance[8]_i_13_n_0\,
+      S(1) => \bestDistance[8]_i_14_n_0\,
+      S(0) => \bestDistance[8]_i_15_n_0\
     );
 \cnt[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1152,13 +1264,13 @@ begin
     );
 \cnt[2]_i_4\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"8080C000"
+      INIT => X"A000C000"
     )
         port map (
       I0 => \mask_reg_n_0_[7]\,
-      I1 => \maskPos_reg_n_0_[1]\,
+      I1 => \mask_reg_n_0_[3]\,
       I2 => \maskPos_reg_n_0_[0]\,
-      I3 => \mask_reg_n_0_[3]\,
+      I3 => \maskPos_reg_n_0_[1]\,
       I4 => \maskPos_reg_n_0_[2]\,
       O => \cnt[2]_i_4_n_0\
     );
@@ -2353,206 +2465,267 @@ o_we_reg: unisim.vcomponents.FDRE
     );
 \outMask[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AFAAFFFFAFAA0C00"
+      INIT => X"EEAAFFFFEEAAC000"
     )
         port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[4]_i_2_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
+      I0 => \outMask[6]_i_2_n_0\,
+      I1 => \outMask[6]_i_3_n_0\,
+      I2 => eqOp,
+      I3 => \outMask[0]_i_2_n_0\,
+      I4 => \bestDistance[8]_i_2_n_0\,
       I5 => outMask(0),
       O => \outMask[0]_i_1_n_0\
     );
-\outMask[1]_i_1\: unisim.vcomponents.LUT6
+\outMask[0]_i_2\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"AFAAFFFFAFAA0C00"
+      INIT => X"1"
     )
         port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[5]_i_2_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
+      I0 => \maskPos_reg_n_0_[1]\,
+      I1 => \maskPos_reg_n_0_[2]\,
+      O => \outMask[0]_i_2_n_0\
+    );
+\outMask[1]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"2F00FFFF2F000000"
+    )
+        port map (
+      I0 => \outMask[5]_i_2_n_0\,
+      I1 => \maskPos_reg_n_0_[2]\,
+      I2 => ltOp,
+      I3 => \FSM_onehot_state_reg_n_0_[5]\,
+      I4 => \outMask[1]_i_2_n_0\,
       I5 => outMask(1),
       O => \outMask[1]_i_1_n_0\
     );
-\outMask[2]_i_1\: unisim.vcomponents.LUT6
+\outMask[1]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AFAAFFFFAFAA0C00"
+      INIT => X"FFFFFFFF00000800"
     )
         port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[6]_i_2_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
+      I0 => eqOp,
+      I1 => \FSM_onehot_state_reg_n_0_[5]\,
+      I2 => \maskPos_reg_n_0_[1]\,
+      I3 => \maskPos_reg_n_0_[0]\,
+      I4 => \maskPos_reg_n_0_[2]\,
+      I5 => \bestDistance[8]_i_2_n_0\,
+      O => \outMask[1]_i_2_n_0\
+    );
+\outMask[2]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EEAAFFFFEEAAC000"
+    )
+        port map (
+      I0 => \outMask[6]_i_2_n_0\,
+      I1 => \outMask[6]_i_3_n_0\,
+      I2 => eqOp,
+      I3 => \outMask[2]_i_2_n_0\,
+      I4 => \bestDistance[8]_i_2_n_0\,
       I5 => outMask(2),
       O => \outMask[2]_i_1_n_0\
     );
-\outMask[3]_i_1\: unisim.vcomponents.LUT6
+\outMask[2]_i_2\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"AFAAFFFFAFAA0C00"
+      INIT => X"2"
     )
         port map (
-      I0 => \outMask[7]_i_2_n_0\,
+      I0 => \maskPos_reg_n_0_[1]\,
+      I1 => \maskPos_reg_n_0_[2]\,
+      O => \outMask[2]_i_2_n_0\
+    );
+\outMask[3]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F050FFFFF050C000"
+    )
+        port map (
+      I0 => ltOp,
       I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[7]_i_4_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
+      I2 => \FSM_onehot_state_reg_n_0_[5]\,
+      I3 => \outMask[3]_i_2_n_0\,
+      I4 => \bestDistance[8]_i_2_n_0\,
       I5 => outMask(3),
       O => \outMask[3]_i_1_n_0\
     );
-\outMask[4]_i_1\: unisim.vcomponents.LUT6
+\outMask[3]_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FAAAFFFFFAAAC000"
-    )
-        port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[4]_i_2_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
-      I5 => outMask(4),
-      O => \outMask[4]_i_1_n_0\
-    );
-\outMask[4]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"04"
+      INIT => X"08"
     )
         port map (
       I0 => \maskPos_reg_n_0_[0]\,
-      I1 => \FSM_onehot_state_reg_n_0_[5]\,
-      I2 => \maskPos_reg_n_0_[1]\,
+      I1 => \maskPos_reg_n_0_[1]\,
+      I2 => \maskPos_reg_n_0_[2]\,
+      O => \outMask[3]_i_2_n_0\
+    );
+\outMask[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EEAAFFFFEEAAC000"
+    )
+        port map (
+      I0 => \outMask[6]_i_2_n_0\,
+      I1 => \outMask[6]_i_3_n_0\,
+      I2 => eqOp,
+      I3 => \outMask[4]_i_2_n_0\,
+      I4 => \bestDistance[8]_i_2_n_0\,
+      I5 => outMask(4),
+      O => \outMask[4]_i_1_n_0\
+    );
+\outMask[4]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => \maskPos_reg_n_0_[2]\,
+      I1 => \maskPos_reg_n_0_[1]\,
       O => \outMask[4]_i_2_n_0\
     );
 \outMask[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FAAAFFFFFAAAC000"
+      INIT => X"8F00FFFF8F000000"
     )
         port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[5]_i_2_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
+      I0 => \outMask[5]_i_2_n_0\,
+      I1 => \maskPos_reg_n_0_[2]\,
+      I2 => ltOp,
+      I3 => \FSM_onehot_state_reg_n_0_[5]\,
+      I4 => \outMask[5]_i_3_n_0\,
       I5 => outMask(5),
       O => \outMask[5]_i_1_n_0\
     );
-\outMask[5]_i_2\: unisim.vcomponents.LUT3
+\outMask[5]_i_2\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"40"
-    )
-        port map (
-      I0 => \maskPos_reg_n_0_[1]\,
-      I1 => \maskPos_reg_n_0_[0]\,
-      I2 => \FSM_onehot_state_reg_n_0_[5]\,
-      O => \outMask[5]_i_2_n_0\
-    );
-\outMask[6]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FAAAFFFFFAAAC000"
-    )
-        port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[6]_i_2_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
-      I5 => outMask(6),
-      O => \outMask[6]_i_1_n_0\
-    );
-\outMask[6]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"40"
+      INIT => X"2"
     )
         port map (
       I0 => \maskPos_reg_n_0_[0]\,
-      I1 => \FSM_onehot_state_reg_n_0_[5]\,
-      I2 => \maskPos_reg_n_0_[1]\,
-      O => \outMask[6]_i_2_n_0\
+      I1 => \maskPos_reg_n_0_[1]\,
+      O => \outMask[5]_i_2_n_0\
     );
-\outMask[7]_i_1\: unisim.vcomponents.LUT6
+\outMask[5]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FAAAFFFFFAAAC000"
+      INIT => X"FFFFFFFF08000000"
     )
         port map (
-      I0 => \outMask[7]_i_2_n_0\,
-      I1 => eqOp,
-      I2 => \maskPos_reg_n_0_[2]\,
-      I3 => \outMask[7]_i_4_n_0\,
-      I4 => \outMask[7]_i_5_n_0\,
-      I5 => outMask(7),
-      O => \outMask[7]_i_1_n_0\
+      I0 => eqOp,
+      I1 => \FSM_onehot_state_reg_n_0_[5]\,
+      I2 => \maskPos_reg_n_0_[1]\,
+      I3 => \maskPos_reg_n_0_[0]\,
+      I4 => \maskPos_reg_n_0_[2]\,
+      I5 => \bestDistance[8]_i_2_n_0\,
+      O => \outMask[5]_i_3_n_0\
     );
-\outMask[7]_i_2\: unisim.vcomponents.LUT2
+\outMask[6]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EEAAFFFFEEAAC000"
+    )
+        port map (
+      I0 => \outMask[6]_i_2_n_0\,
+      I1 => \outMask[6]_i_3_n_0\,
+      I2 => eqOp,
+      I3 => \outMask[6]_i_5_n_0\,
+      I4 => \bestDistance[8]_i_2_n_0\,
+      I5 => outMask(6),
+      O => \outMask[6]_i_1_n_0\
+    );
+\outMask[6]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[5]\,
       I1 => ltOp,
-      O => \outMask[7]_i_2_n_0\
+      O => \outMask[6]_i_2_n_0\
     );
-\outMask[7]_i_4\: unisim.vcomponents.LUT3
+\outMask[6]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"80"
+      INIT => X"2"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[5]\,
       I1 => \maskPos_reg_n_0_[0]\,
-      I2 => \maskPos_reg_n_0_[1]\,
-      O => \outMask[7]_i_4_n_0\
+      O => \outMask[6]_i_3_n_0\
     );
-\outMask[7]_i_5\: unisim.vcomponents.LUT4
+\outMask[6]_i_5\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"F888"
+      INIT => X"8"
     )
         port map (
-      I0 => \FSM_onehot_state_reg_n_0_[0]\,
-      I1 => i_start_IBUF,
-      I2 => ltOp,
-      I3 => \FSM_onehot_state_reg_n_0_[5]\,
-      O => \outMask[7]_i_5_n_0\
+      I0 => \maskPos_reg_n_0_[1]\,
+      I1 => \maskPos_reg_n_0_[2]\,
+      O => \outMask[6]_i_5_n_0\
     );
-\outMask[7]_i_6\: unisim.vcomponents.LUT6
+\outMask[6]_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
     )
         port map (
       I0 => \tempDistance__0\(7),
-      I1 => \bestDistance_reg_n_0_[7]\,
-      I2 => \bestDistance_reg_n_0_[8]\,
+      I1 => bestDistance(7),
+      I2 => bestDistance(8),
       I3 => \tempDistance__0\(8),
       I4 => \tempDistance__0\(6),
-      I5 => \bestDistance_reg_n_0_[6]\,
-      O => \outMask[7]_i_6_n_0\
+      I5 => bestDistance(6),
+      O => \outMask[6]_i_6_n_0\
     );
-\outMask[7]_i_7\: unisim.vcomponents.LUT6
+\outMask[6]_i_7\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
     )
         port map (
       I0 => \tempDistance__0\(5),
-      I1 => \bestDistance_reg_n_0_[5]\,
-      I2 => \bestDistance_reg_n_0_[4]\,
+      I1 => bestDistance(5),
+      I2 => bestDistance(4),
       I3 => \tempDistance__0\(4),
-      I4 => \bestDistance_reg_n_0_[3]\,
+      I4 => bestDistance(3),
       I5 => \tempDistance__0\(3),
-      O => \outMask[7]_i_7_n_0\
+      O => \outMask[6]_i_7_n_0\
     );
-\outMask[7]_i_8\: unisim.vcomponents.LUT6
+\outMask[6]_i_8\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9009000000009009"
     )
         port map (
       I0 => \tempDistance__0\(1),
-      I1 => \bestDistance_reg_n_0_[1]\,
-      I2 => \bestDistance_reg_n_0_[2]\,
+      I1 => bestDistance(1),
+      I2 => bestDistance(2),
       I3 => \tempDistance__0\(2),
       I4 => \tempDistance__0\(0),
-      I5 => \bestDistance_reg_n_0_[0]\,
-      O => \outMask[7]_i_8_n_0\
+      I5 => bestDistance(0),
+      O => \outMask[6]_i_8_n_0\
+    );
+\outMask[7]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"4F00FFFF4F000000"
+    )
+        port map (
+      I0 => \outMask[7]_i_2_n_0\,
+      I1 => \maskPos_reg_n_0_[2]\,
+      I2 => ltOp,
+      I3 => \FSM_onehot_state_reg_n_0_[5]\,
+      I4 => \outMask[7]_i_3_n_0\,
+      I5 => outMask(7),
+      O => \outMask[7]_i_1_n_0\
+    );
+\outMask[7]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => \maskPos_reg_n_0_[1]\,
+      I1 => \maskPos_reg_n_0_[0]\,
+      O => \outMask[7]_i_2_n_0\
+    );
+\outMask[7]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFF80000000"
+    )
+        port map (
+      I0 => eqOp,
+      I1 => \FSM_onehot_state_reg_n_0_[5]\,
+      I2 => \maskPos_reg_n_0_[2]\,
+      I3 => \maskPos_reg_n_0_[0]\,
+      I4 => \maskPos_reg_n_0_[1]\,
+      I5 => \bestDistance[8]_i_2_n_0\,
+      O => \outMask[7]_i_3_n_0\
     );
 \outMask_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -2631,6 +2804,21 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => outMask(6),
       R => '0'
     );
+\outMask_reg[6]_i_4\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \NLW_outMask_reg[6]_i_4_CO_UNCONNECTED\(3),
+      CO(2) => eqOp,
+      CO(1) => \outMask_reg[6]_i_4_n_2\,
+      CO(0) => \outMask_reg[6]_i_4_n_3\,
+      CYINIT => '1',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => \NLW_outMask_reg[6]_i_4_O_UNCONNECTED\(3 downto 0),
+      S(3) => '0',
+      S(2) => \outMask[6]_i_6_n_0\,
+      S(1) => \outMask[6]_i_7_n_0\,
+      S(0) => \outMask[6]_i_8_n_0\
+    );
 \outMask_reg[7]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
@@ -2641,21 +2829,6 @@ o_we_reg: unisim.vcomponents.FDRE
       D => \outMask[7]_i_1_n_0\,
       Q => outMask(7),
       R => '0'
-    );
-\outMask_reg[7]_i_3\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \NLW_outMask_reg[7]_i_3_CO_UNCONNECTED\(3),
-      CO(2) => eqOp,
-      CO(1) => \outMask_reg[7]_i_3_n_2\,
-      CO(0) => \outMask_reg[7]_i_3_n_3\,
-      CYINIT => '1',
-      DI(3 downto 0) => B"0000",
-      O(3 downto 0) => \NLW_outMask_reg[7]_i_3_O_UNCONNECTED\(3 downto 0),
-      S(3) => '0',
-      S(2) => \outMask[7]_i_6_n_0\,
-      S(1) => \outMask[7]_i_7_n_0\,
-      S(0) => \outMask[7]_i_8_n_0\
     );
 \tempDistance[3]_i_10\: unisim.vcomponents.LUT2
     generic map(

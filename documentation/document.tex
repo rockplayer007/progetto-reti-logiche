@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[left=3cm, right=3cm]{geometry}
+\usepackage[italian]{babel}
+%for clickable table of content
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+%opening
+\title{Progetto finale di Reti Logiche}
+\author{Roland Reylander [10539438]}
+\date{1 Aprile 2019}
+\begin{document}
+
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Specifiche di progetto}
+Lo scopo del progetto \`e la realizzazione di un componente hardware usando il linguaggio VHDL che risolve il seguente problema: in uno spazio quadrato di 256x256 vengono posizionati 8 centroidi e si vuole trovare il centroide o i centroidi più vicini ad un punto dato.
+\newline
+Il componente dovr\`{a} interfacciarsi con una memoria RAM dalla quale legge i dati di input e scrive il risultato della computazione. La memoria RAM di input contiene la maschera dei centroidi da considerare, le coordinate dei centroidi, le coordinate del punto dal quale calcolare la distanza e un inidirizzo dedicato al risultato, cioè la maschera di uscita.
+\newline
+\newline
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ |c|c|c| }
+	\hline
+	INDIRIZZO RAM & CONTENUTO \\ 
+	\hline
+	0 & maschera dei centroidi \\
+	\hline
+	1 & coordinata X del centroide \\
+	\hline
+	2 & coordinata Y del centroide \\
+	\hline
+	\vdots & \vdots \\
+	\hline
+	17 & coordinata X del punto da considerare \\
+	\hline
+	18 & coordinata Y del punto da considerare \\
+	\hline
+	19 & maschera di output del risultato \\
+	\hline
+	\vdots & indirizzi non utili \\
+	\hline
+\end{tabular}
+\newline
+
+
+
+\section{Scelte progettuali}
+Per affrontare la risoluzione di questo problema \`{e} stata pensata una FSM con i seguenti stati: 
+\begin{itemize}
+	\item \textbf{reset}: tutti i signal vengono inizializzati ad un valore di inizio;
+	\item \textbf{changeAddress}: in base al valore che assume \texttt{cnt} (cio\`{e} \texttt{readMask, readXPoint, readYPoint, readXCoord, readYCoord}) viene aumentato l'indirizzo per la prossima lettura della RAM;
+	\item \textbf{waitClock}: la lettura dalla memoria richiede 2 ns e quindi non \`{e} immediata. In questo stato si aspetta un ciclo di clock affinch\'{e} il valore \texttt{i\_data} assuma il valore desiderato che verr\`{a} poi usato nello stato successivo;
+	\item \textbf{readData}: in base al valore di \texttt{cnt} in questo stato vengono salvati su dei signal dedicati i valori della maschera e delle coordinate del punto. Successivamente verranno usati i signal \texttt{xAddress} e \texttt{yAddress} per memorizzare le coordinate dei centroidi;
+	\item \textbf{calcDistance}: viene calcolata la distanza e memorizzata in \texttt{tempDistance};
+	\item \textbf{compareDistance}: la distanza calcolata al punto precedente viene confrontata con \texttt{bestDistance} in modo da tenere solo i centroidi pi\`{u} vicini;
+	\item \textbf{sendMask}: \texttt{t\_data} assume il valore del risultato finale e l'indirizzo da mandare alla RAM è il 19° e \texttt{o\_we} viene settato a $1$ per la scrittura del risultato;
+	\item \textbf{load}: segnale di \texttt{o\_done} viene messo a $1$ per indicare la fine dell'elaborazione e l'avvenuta scrittura del risultato;
+	\item \textbf{last}: \texttt{o\_done} torna a $0$ e il componente torna allo stato di \texttt{reset} pronto per ricevere il prossimo segnale di start.
+	
+\end{itemize}
+Dopo la lettura della maschera dalla RAM, nello stato \texttt{changeAddress} viene scandita la maschera dei centroidi da considerare tramite il signal \texttt{maskPos} in modo da passare alla lettura delle coordinate dei centroidi in caso il bit sia 1 altrimenti verr\`{a} letto il prossimo bit della maschera.
+\newline
+I signal \texttt{tempDistance} e \texttt{bestDistance} sono entrambi \texttt{std\_logic\_vector(8 DOWNTO 0)} dato che la distanza massima delle coordinate X e Y dei centroidi \`{e} $255+255=510$ e necessita quindi di 8 bit. Inoltre \texttt{bestDistance} viene inizializzata nello stato di \textit{reset} con \texttt{OTHERS => '1'} cio\`{e} $511$ che \`{e} maggiore della massima distanza possibile dei centroidi e quindi permette il corretto funzionamento dell'algoritmo.
+
+
+\section{Risultati dei test}
+\section{Risultati della sintesi}
+
+
+
+
+\end{document}

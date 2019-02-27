@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue Feb 26 18:53:34 2019
+// Date        : Tue Feb 26 19:04:20 2019
 // Host        : ComputerDiRoland running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               {C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti
@@ -76,30 +76,32 @@ module project_reti_logiche
   wire [7:1]L;
   wire [7:0]L2;
   wire [7:0]R2;
-  wire bestDistance;
+  wire [8:0]bestDistance;
+  wire \bestDistance[0]_i_1_n_0 ;
+  wire \bestDistance[1]_i_1_n_0 ;
+  wire \bestDistance[2]_i_1_n_0 ;
+  wire \bestDistance[3]_i_1_n_0 ;
+  wire \bestDistance[4]_i_1_n_0 ;
+  wire \bestDistance[5]_i_1_n_0 ;
+  wire \bestDistance[6]_i_1_n_0 ;
+  wire \bestDistance[7]_i_1_n_0 ;
   wire \bestDistance[8]_i_10_n_0 ;
   wire \bestDistance[8]_i_11_n_0 ;
   wire \bestDistance[8]_i_12_n_0 ;
   wire \bestDistance[8]_i_13_n_0 ;
-  wire \bestDistance[8]_i_4_n_0 ;
-  wire \bestDistance[8]_i_5_n_0 ;
+  wire \bestDistance[8]_i_14_n_0 ;
+  wire \bestDistance[8]_i_15_n_0 ;
+  wire \bestDistance[8]_i_1_n_0 ;
+  wire \bestDistance[8]_i_2_n_0 ;
+  wire \bestDistance[8]_i_3_n_0 ;
   wire \bestDistance[8]_i_6_n_0 ;
   wire \bestDistance[8]_i_7_n_0 ;
   wire \bestDistance[8]_i_8_n_0 ;
   wire \bestDistance[8]_i_9_n_0 ;
-  wire \bestDistance_reg[8]_i_3_n_0 ;
-  wire \bestDistance_reg[8]_i_3_n_1 ;
-  wire \bestDistance_reg[8]_i_3_n_2 ;
-  wire \bestDistance_reg[8]_i_3_n_3 ;
-  wire \bestDistance_reg_n_0_[0] ;
-  wire \bestDistance_reg_n_0_[1] ;
-  wire \bestDistance_reg_n_0_[2] ;
-  wire \bestDistance_reg_n_0_[3] ;
-  wire \bestDistance_reg_n_0_[4] ;
-  wire \bestDistance_reg_n_0_[5] ;
-  wire \bestDistance_reg_n_0_[6] ;
-  wire \bestDistance_reg_n_0_[7] ;
-  wire \bestDistance_reg_n_0_[8] ;
+  wire \bestDistance_reg[8]_i_5_n_0 ;
+  wire \bestDistance_reg[8]_i_5_n_1 ;
+  wire \bestDistance_reg[8]_i_5_n_2 ;
+  wire \bestDistance_reg[8]_i_5_n_3 ;
   wire [2:0]cnt;
   wire \cnt[0]_i_1_n_0 ;
   wire \cnt[1]_i_1_n_0 ;
@@ -202,24 +204,30 @@ module project_reti_logiche
   wire o_we_i_1_n_0;
   wire [7:0]outMask;
   wire \outMask[0]_i_1_n_0 ;
+  wire \outMask[0]_i_2_n_0 ;
   wire \outMask[1]_i_1_n_0 ;
+  wire \outMask[1]_i_2_n_0 ;
   wire \outMask[2]_i_1_n_0 ;
+  wire \outMask[2]_i_2_n_0 ;
   wire \outMask[3]_i_1_n_0 ;
+  wire \outMask[3]_i_2_n_0 ;
   wire \outMask[4]_i_1_n_0 ;
   wire \outMask[4]_i_2_n_0 ;
   wire \outMask[5]_i_1_n_0 ;
   wire \outMask[5]_i_2_n_0 ;
+  wire \outMask[5]_i_3_n_0 ;
   wire \outMask[6]_i_1_n_0 ;
   wire \outMask[6]_i_2_n_0 ;
+  wire \outMask[6]_i_3_n_0 ;
+  wire \outMask[6]_i_5_n_0 ;
+  wire \outMask[6]_i_6_n_0 ;
+  wire \outMask[6]_i_7_n_0 ;
+  wire \outMask[6]_i_8_n_0 ;
   wire \outMask[7]_i_1_n_0 ;
   wire \outMask[7]_i_2_n_0 ;
-  wire \outMask[7]_i_4_n_0 ;
-  wire \outMask[7]_i_5_n_0 ;
-  wire \outMask[7]_i_6_n_0 ;
-  wire \outMask[7]_i_7_n_0 ;
-  wire \outMask[7]_i_8_n_0 ;
-  wire \outMask_reg[7]_i_3_n_2 ;
-  wire \outMask_reg[7]_i_3_n_3 ;
+  wire \outMask[7]_i_3_n_0 ;
+  wire \outMask_reg[6]_i_4_n_2 ;
+  wire \outMask_reg[6]_i_4_n_3 ;
   wire [8:0]plusOp;
   (* RTL_KEEP = "yes" *) wire tempDistance;
   wire \tempDistance[3]_i_10_n_0 ;
@@ -313,12 +321,12 @@ module project_reti_logiche
   wire \yPoint_reg_n_0_[5] ;
   wire \yPoint_reg_n_0_[6] ;
   wire \yPoint_reg_n_0_[7] ;
-  wire [3:1]\NLW_bestDistance_reg[8]_i_2_CO_UNCONNECTED ;
-  wire [3:0]\NLW_bestDistance_reg[8]_i_2_O_UNCONNECTED ;
-  wire [3:0]\NLW_bestDistance_reg[8]_i_3_O_UNCONNECTED ;
+  wire [3:1]\NLW_bestDistance_reg[8]_i_4_CO_UNCONNECTED ;
+  wire [3:0]\NLW_bestDistance_reg[8]_i_4_O_UNCONNECTED ;
+  wire [3:0]\NLW_bestDistance_reg[8]_i_5_O_UNCONNECTED ;
   wire [3:3]\NLW_currentAddress_reg[15]_i_3_CO_UNCONNECTED ;
-  wire [3:3]\NLW_outMask_reg[7]_i_3_CO_UNCONNECTED ;
-  wire [3:0]\NLW_outMask_reg[7]_i_3_O_UNCONNECTED ;
+  wire [3:3]\NLW_outMask_reg[6]_i_4_CO_UNCONNECTED ;
+  wire [3:0]\NLW_outMask_reg[6]_i_4_O_UNCONNECTED ;
   wire [3:1]\NLW_tempDistance_reg[7]_i_12_CO_UNCONNECTED ;
   wire [3:0]\NLW_tempDistance_reg[7]_i_12_O_UNCONNECTED ;
   wire [3:0]\NLW_tempDistance_reg[8]_i_1_CO_UNCONNECTED ;
@@ -348,7 +356,7 @@ end
         .I3(\FSM_onehot_state_reg_n_0_[2] ),
         .I4(\FSM_onehot_state[0]_i_4_n_0 ),
         .O(\FSM_onehot_state[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h24)) 
     \FSM_onehot_state[0]_i_3 
@@ -420,16 +428,16 @@ end
         .I3(\FSM_onehot_state_reg_n_0_[1] ),
         .O(\FSM_onehot_state[2]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFEAAAAAABAAAAAAA)) 
+    .INIT(64'hFAAAEAAABAAAAAAA)) 
     \FSM_onehot_state[2]_i_3 
        (.I0(\FSM_onehot_state[2]_i_5_n_0 ),
         .I1(\maskPos_reg_n_0_[2] ),
-        .I2(\mask_reg_n_0_[3] ),
+        .I2(\maskPos_reg_n_0_[1] ),
         .I3(\maskPos_reg_n_0_[0] ),
-        .I4(\maskPos_reg_n_0_[1] ),
+        .I4(\mask_reg_n_0_[3] ),
         .I5(\mask_reg_n_0_[7] ),
         .O(\FSM_onehot_state[2]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \FSM_onehot_state[2]_i_4 
@@ -457,6 +465,7 @@ end
         .I4(\maskPos_reg_n_0_[0] ),
         .I5(\FSM_onehot_state[2]_i_7_n_0 ),
         .O(\FSM_onehot_state[2]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h11100010)) 
     \FSM_onehot_state[2]_i_7 
@@ -700,172 +709,236 @@ end
         .R(1'b0));
   LUT2 #(
     .INIT(4'h8)) 
-    \bestDistance[8]_i_1 
+    \bestDistance[0]_i_1 
        (.I0(\FSM_onehot_state_reg_n_0_[5] ),
-        .I1(ltOp),
-        .O(bestDistance));
+        .I1(tempDistance__0[0]),
+        .O(\bestDistance[0]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[1]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[1]),
+        .O(\bestDistance[1]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[2]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[2]),
+        .O(\bestDistance[2]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[3]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[3]),
+        .O(\bestDistance[3]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[4]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[4]),
+        .O(\bestDistance[4]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[5]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[5]),
+        .O(\bestDistance[5]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[6]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[6]),
+        .O(\bestDistance[6]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[7]_i_1 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[7]),
+        .O(\bestDistance[7]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h9009)) 
+    .INIT(16'hF800)) 
+    \bestDistance[8]_i_1 
+       (.I0(ltOp),
+        .I1(\FSM_onehot_state_reg_n_0_[5] ),
+        .I2(i_start_IBUF),
+        .I3(\FSM_onehot_state_reg_n_0_[0] ),
+        .O(\bestDistance[8]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'h22B2)) 
     \bestDistance[8]_i_10 
-       (.I0(tempDistance__0[6]),
-        .I1(\bestDistance_reg_n_0_[6] ),
-        .I2(\bestDistance_reg_n_0_[7] ),
-        .I3(tempDistance__0[7]),
+       (.I0(bestDistance[3]),
+        .I1(tempDistance__0[3]),
+        .I2(bestDistance[2]),
+        .I3(tempDistance__0[2]),
         .O(\bestDistance[8]_i_10_n_0 ));
   LUT4 #(
-    .INIT(16'h9009)) 
+    .INIT(16'h22B2)) 
     \bestDistance[8]_i_11 
-       (.I0(tempDistance__0[4]),
-        .I1(\bestDistance_reg_n_0_[4] ),
-        .I2(\bestDistance_reg_n_0_[5] ),
-        .I3(tempDistance__0[5]),
+       (.I0(bestDistance[1]),
+        .I1(tempDistance__0[1]),
+        .I2(bestDistance[0]),
+        .I3(tempDistance__0[0]),
         .O(\bestDistance[8]_i_11_n_0 ));
   LUT4 #(
     .INIT(16'h9009)) 
     \bestDistance[8]_i_12 
-       (.I0(\bestDistance_reg_n_0_[3] ),
-        .I1(tempDistance__0[3]),
-        .I2(tempDistance__0[2]),
-        .I3(\bestDistance_reg_n_0_[2] ),
+       (.I0(tempDistance__0[6]),
+        .I1(bestDistance[6]),
+        .I2(bestDistance[7]),
+        .I3(tempDistance__0[7]),
         .O(\bestDistance[8]_i_12_n_0 ));
   LUT4 #(
     .INIT(16'h9009)) 
     \bestDistance[8]_i_13 
-       (.I0(tempDistance__0[0]),
-        .I1(\bestDistance_reg_n_0_[0] ),
-        .I2(\bestDistance_reg_n_0_[1] ),
-        .I3(tempDistance__0[1]),
+       (.I0(tempDistance__0[4]),
+        .I1(bestDistance[4]),
+        .I2(bestDistance[5]),
+        .I3(tempDistance__0[5]),
         .O(\bestDistance[8]_i_13_n_0 ));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    \bestDistance[8]_i_14 
+       (.I0(bestDistance[3]),
+        .I1(tempDistance__0[3]),
+        .I2(tempDistance__0[2]),
+        .I3(bestDistance[2]),
+        .O(\bestDistance[8]_i_14_n_0 ));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    \bestDistance[8]_i_15 
+       (.I0(tempDistance__0[0]),
+        .I1(bestDistance[0]),
+        .I2(bestDistance[1]),
+        .I3(tempDistance__0[1]),
+        .O(\bestDistance[8]_i_15_n_0 ));
+  LUT4 #(
+    .INIT(16'hF888)) 
+    \bestDistance[8]_i_2 
+       (.I0(\FSM_onehot_state_reg_n_0_[0] ),
+        .I1(i_start_IBUF),
+        .I2(\FSM_onehot_state_reg_n_0_[5] ),
+        .I3(ltOp),
+        .O(\bestDistance[8]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bestDistance[8]_i_3 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(tempDistance__0[8]),
+        .O(\bestDistance[8]_i_3_n_0 ));
   LUT2 #(
     .INIT(4'h2)) 
-    \bestDistance[8]_i_4 
-       (.I0(\bestDistance_reg_n_0_[8] ),
+    \bestDistance[8]_i_6 
+       (.I0(bestDistance[8]),
         .I1(tempDistance__0[8]),
-        .O(\bestDistance[8]_i_4_n_0 ));
+        .O(\bestDistance[8]_i_6_n_0 ));
   LUT2 #(
     .INIT(4'h9)) 
-    \bestDistance[8]_i_5 
-       (.I0(tempDistance__0[8]),
-        .I1(\bestDistance_reg_n_0_[8] ),
-        .O(\bestDistance[8]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'h22B2)) 
-    \bestDistance[8]_i_6 
-       (.I0(\bestDistance_reg_n_0_[7] ),
-        .I1(tempDistance__0[7]),
-        .I2(\bestDistance_reg_n_0_[6] ),
-        .I3(tempDistance__0[6]),
-        .O(\bestDistance[8]_i_6_n_0 ));
-  LUT4 #(
-    .INIT(16'h22B2)) 
     \bestDistance[8]_i_7 
-       (.I0(\bestDistance_reg_n_0_[5] ),
-        .I1(tempDistance__0[5]),
-        .I2(\bestDistance_reg_n_0_[4] ),
-        .I3(tempDistance__0[4]),
+       (.I0(tempDistance__0[8]),
+        .I1(bestDistance[8]),
         .O(\bestDistance[8]_i_7_n_0 ));
   LUT4 #(
     .INIT(16'h22B2)) 
     \bestDistance[8]_i_8 
-       (.I0(\bestDistance_reg_n_0_[3] ),
-        .I1(tempDistance__0[3]),
-        .I2(\bestDistance_reg_n_0_[2] ),
-        .I3(tempDistance__0[2]),
+       (.I0(bestDistance[7]),
+        .I1(tempDistance__0[7]),
+        .I2(bestDistance[6]),
+        .I3(tempDistance__0[6]),
         .O(\bestDistance[8]_i_8_n_0 ));
   LUT4 #(
     .INIT(16'h22B2)) 
     \bestDistance[8]_i_9 
-       (.I0(\bestDistance_reg_n_0_[1] ),
-        .I1(tempDistance__0[1]),
-        .I2(\bestDistance_reg_n_0_[0] ),
-        .I3(tempDistance__0[0]),
+       (.I0(bestDistance[5]),
+        .I1(tempDistance__0[5]),
+        .I2(bestDistance[4]),
+        .I3(tempDistance__0[4]),
         .O(\bestDistance[8]_i_9_n_0 ));
-  FDRE #(
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[0] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[0]),
-        .Q(\bestDistance_reg_n_0_[0] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[0]_i_1_n_0 ),
+        .Q(bestDistance[0]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[1] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[1]),
-        .Q(\bestDistance_reg_n_0_[1] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[1]_i_1_n_0 ),
+        .Q(bestDistance[1]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[2] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[2]),
-        .Q(\bestDistance_reg_n_0_[2] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[2]_i_1_n_0 ),
+        .Q(bestDistance[2]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[3] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[3]),
-        .Q(\bestDistance_reg_n_0_[3] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[3]_i_1_n_0 ),
+        .Q(bestDistance[3]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[4] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[4]),
-        .Q(\bestDistance_reg_n_0_[4] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[4]_i_1_n_0 ),
+        .Q(bestDistance[4]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[5] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[5]),
-        .Q(\bestDistance_reg_n_0_[5] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[5]_i_1_n_0 ),
+        .Q(bestDistance[5]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[6] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[6]),
-        .Q(\bestDistance_reg_n_0_[6] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[6]_i_1_n_0 ),
+        .Q(bestDistance[6]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[7] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[7]),
-        .Q(\bestDistance_reg_n_0_[7] ),
-        .R(1'b0));
-  FDRE #(
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[7]_i_1_n_0 ),
+        .Q(bestDistance[7]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  FDSE #(
     .INIT(1'b1)) 
     \bestDistance_reg[8] 
        (.C(i_clk_IBUF_BUFG),
-        .CE(bestDistance),
-        .D(tempDistance__0[8]),
-        .Q(\bestDistance_reg_n_0_[8] ),
-        .R(1'b0));
-  CARRY4 \bestDistance_reg[8]_i_2 
-       (.CI(\bestDistance_reg[8]_i_3_n_0 ),
-        .CO({\NLW_bestDistance_reg[8]_i_2_CO_UNCONNECTED [3:1],ltOp}),
+        .CE(\bestDistance[8]_i_2_n_0 ),
+        .D(\bestDistance[8]_i_3_n_0 ),
+        .Q(bestDistance[8]),
+        .S(\bestDistance[8]_i_1_n_0 ));
+  CARRY4 \bestDistance_reg[8]_i_4 
+       (.CI(\bestDistance_reg[8]_i_5_n_0 ),
+        .CO({\NLW_bestDistance_reg[8]_i_4_CO_UNCONNECTED [3:1],ltOp}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,\bestDistance[8]_i_4_n_0 }),
-        .O(\NLW_bestDistance_reg[8]_i_2_O_UNCONNECTED [3:0]),
-        .S({1'b0,1'b0,1'b0,\bestDistance[8]_i_5_n_0 }));
-  CARRY4 \bestDistance_reg[8]_i_3 
+        .DI({1'b0,1'b0,1'b0,\bestDistance[8]_i_6_n_0 }),
+        .O(\NLW_bestDistance_reg[8]_i_4_O_UNCONNECTED [3:0]),
+        .S({1'b0,1'b0,1'b0,\bestDistance[8]_i_7_n_0 }));
+  CARRY4 \bestDistance_reg[8]_i_5 
        (.CI(1'b0),
-        .CO({\bestDistance_reg[8]_i_3_n_0 ,\bestDistance_reg[8]_i_3_n_1 ,\bestDistance_reg[8]_i_3_n_2 ,\bestDistance_reg[8]_i_3_n_3 }),
+        .CO({\bestDistance_reg[8]_i_5_n_0 ,\bestDistance_reg[8]_i_5_n_1 ,\bestDistance_reg[8]_i_5_n_2 ,\bestDistance_reg[8]_i_5_n_3 }),
         .CYINIT(1'b0),
-        .DI({\bestDistance[8]_i_6_n_0 ,\bestDistance[8]_i_7_n_0 ,\bestDistance[8]_i_8_n_0 ,\bestDistance[8]_i_9_n_0 }),
-        .O(\NLW_bestDistance_reg[8]_i_3_O_UNCONNECTED [3:0]),
-        .S({\bestDistance[8]_i_10_n_0 ,\bestDistance[8]_i_11_n_0 ,\bestDistance[8]_i_12_n_0 ,\bestDistance[8]_i_13_n_0 }));
+        .DI({\bestDistance[8]_i_8_n_0 ,\bestDistance[8]_i_9_n_0 ,\bestDistance[8]_i_10_n_0 ,\bestDistance[8]_i_11_n_0 }),
+        .O(\NLW_bestDistance_reg[8]_i_5_O_UNCONNECTED [3:0]),
+        .S({\bestDistance[8]_i_12_n_0 ,\bestDistance[8]_i_13_n_0 ,\bestDistance[8]_i_14_n_0 ,\bestDistance[8]_i_15_n_0 }));
   LUT6 #(
     .INIT(64'hABABAAABA8A8AAA8)) 
     \cnt[0]_i_1 
@@ -931,13 +1004,14 @@ end
         .I4(\cnt[2]_i_4_n_0 ),
         .I5(\FSM_onehot_state[2]_i_5_n_0 ),
         .O(\cnt[2]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h8080C000)) 
+    .INIT(32'hA000C000)) 
     \cnt[2]_i_4 
        (.I0(\mask_reg_n_0_[7] ),
-        .I1(\maskPos_reg_n_0_[1] ),
+        .I1(\mask_reg_n_0_[3] ),
         .I2(\maskPos_reg_n_0_[0] ),
-        .I3(\mask_reg_n_0_[3] ),
+        .I3(\maskPos_reg_n_0_[1] ),
         .I4(\maskPos_reg_n_0_[2] ),
         .O(\cnt[2]_i_4_n_0 ));
   FDRE #(
@@ -1049,14 +1123,14 @@ end
         .I4(\currentAddress[15]_i_2_n_0 ),
         .I5(\currentAddress_reg_n_0_[4] ),
         .O(\currentAddress[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \currentAddress[4]_i_2 
        (.I0(\cnt_reg_n_0_[0] ),
         .I1(\cnt_reg_n_0_[2] ),
         .O(\currentAddress[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \currentAddress[4]_i_3 
@@ -1305,6 +1379,7 @@ end
         .I4(in4),
         .I5(\maskPos_reg_n_0_[2] ),
         .O(\maskPos[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
     .INIT(16'h2A80)) 
     \maskPos[2]_i_2 
@@ -1768,157 +1843,207 @@ end
         .Q(o_we_OBUF),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hAFAAFFFFAFAA0C00)) 
+    .INIT(64'hEEAAFFFFEEAAC000)) 
     \outMask[0]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[4]_i_2_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
+       (.I0(\outMask[6]_i_2_n_0 ),
+        .I1(\outMask[6]_i_3_n_0 ),
+        .I2(eqOp),
+        .I3(\outMask[0]_i_2_n_0 ),
+        .I4(\bestDistance[8]_i_2_n_0 ),
         .I5(outMask[0]),
         .O(\outMask[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    \outMask[0]_i_2 
+       (.I0(\maskPos_reg_n_0_[1] ),
+        .I1(\maskPos_reg_n_0_[2] ),
+        .O(\outMask[0]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hAFAAFFFFAFAA0C00)) 
+    .INIT(64'h2F00FFFF2F000000)) 
     \outMask[1]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[5]_i_2_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
+       (.I0(\outMask[5]_i_2_n_0 ),
+        .I1(\maskPos_reg_n_0_[2] ),
+        .I2(ltOp),
+        .I3(\FSM_onehot_state_reg_n_0_[5] ),
+        .I4(\outMask[1]_i_2_n_0 ),
         .I5(outMask[1]),
         .O(\outMask[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hAFAAFFFFAFAA0C00)) 
+    .INIT(64'hFFFFFFFF00000800)) 
+    \outMask[1]_i_2 
+       (.I0(eqOp),
+        .I1(\FSM_onehot_state_reg_n_0_[5] ),
+        .I2(\maskPos_reg_n_0_[1] ),
+        .I3(\maskPos_reg_n_0_[0] ),
+        .I4(\maskPos_reg_n_0_[2] ),
+        .I5(\bestDistance[8]_i_2_n_0 ),
+        .O(\outMask[1]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hEEAAFFFFEEAAC000)) 
     \outMask[2]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[6]_i_2_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
+       (.I0(\outMask[6]_i_2_n_0 ),
+        .I1(\outMask[6]_i_3_n_0 ),
+        .I2(eqOp),
+        .I3(\outMask[2]_i_2_n_0 ),
+        .I4(\bestDistance[8]_i_2_n_0 ),
         .I5(outMask[2]),
         .O(\outMask[2]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hAFAAFFFFAFAA0C00)) 
-    \outMask[3]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[7]_i_4_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
-        .I5(outMask[3]),
-        .O(\outMask[3]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFAAAFFFFFAAAC000)) 
-    \outMask[4]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[4]_i_2_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
-        .I5(outMask[4]),
-        .O(\outMask[4]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h04)) 
-    \outMask[4]_i_2 
-       (.I0(\maskPos_reg_n_0_[0] ),
-        .I1(\FSM_onehot_state_reg_n_0_[5] ),
-        .I2(\maskPos_reg_n_0_[1] ),
-        .O(\outMask[4]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFAAAFFFFFAAAC000)) 
-    \outMask[5]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[5]_i_2_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
-        .I5(outMask[5]),
-        .O(\outMask[5]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h40)) 
-    \outMask[5]_i_2 
-       (.I0(\maskPos_reg_n_0_[1] ),
-        .I1(\maskPos_reg_n_0_[0] ),
-        .I2(\FSM_onehot_state_reg_n_0_[5] ),
-        .O(\outMask[5]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFAAAFFFFFAAAC000)) 
-    \outMask[6]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[6]_i_2_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
-        .I5(outMask[6]),
-        .O(\outMask[6]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h40)) 
-    \outMask[6]_i_2 
-       (.I0(\maskPos_reg_n_0_[0] ),
-        .I1(\FSM_onehot_state_reg_n_0_[5] ),
-        .I2(\maskPos_reg_n_0_[1] ),
-        .O(\outMask[6]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFAAAFFFFFAAAC000)) 
-    \outMask[7]_i_1 
-       (.I0(\outMask[7]_i_2_n_0 ),
-        .I1(eqOp),
-        .I2(\maskPos_reg_n_0_[2] ),
-        .I3(\outMask[7]_i_4_n_0 ),
-        .I4(\outMask[7]_i_5_n_0 ),
-        .I5(outMask[7]),
-        .O(\outMask[7]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h2)) 
-    \outMask[7]_i_2 
-       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
-        .I1(ltOp),
-        .O(\outMask[7]_i_2_n_0 ));
+    \outMask[2]_i_2 
+       (.I0(\maskPos_reg_n_0_[1] ),
+        .I1(\maskPos_reg_n_0_[2] ),
+        .O(\outMask[2]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hF050FFFFF050C000)) 
+    \outMask[3]_i_1 
+       (.I0(ltOp),
+        .I1(eqOp),
+        .I2(\FSM_onehot_state_reg_n_0_[5] ),
+        .I3(\outMask[3]_i_2_n_0 ),
+        .I4(\bestDistance[8]_i_2_n_0 ),
+        .I5(outMask[3]),
+        .O(\outMask[3]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
-    .INIT(8'h80)) 
-    \outMask[7]_i_4 
-       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
-        .I1(\maskPos_reg_n_0_[0] ),
-        .I2(\maskPos_reg_n_0_[1] ),
-        .O(\outMask[7]_i_4_n_0 ));
-  LUT4 #(
-    .INIT(16'hF888)) 
-    \outMask[7]_i_5 
-       (.I0(\FSM_onehot_state_reg_n_0_[0] ),
-        .I1(i_start_IBUF),
+    .INIT(8'h08)) 
+    \outMask[3]_i_2 
+       (.I0(\maskPos_reg_n_0_[0] ),
+        .I1(\maskPos_reg_n_0_[1] ),
+        .I2(\maskPos_reg_n_0_[2] ),
+        .O(\outMask[3]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hEEAAFFFFEEAAC000)) 
+    \outMask[4]_i_1 
+       (.I0(\outMask[6]_i_2_n_0 ),
+        .I1(\outMask[6]_i_3_n_0 ),
+        .I2(eqOp),
+        .I3(\outMask[4]_i_2_n_0 ),
+        .I4(\bestDistance[8]_i_2_n_0 ),
+        .I5(outMask[4]),
+        .O(\outMask[4]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \outMask[4]_i_2 
+       (.I0(\maskPos_reg_n_0_[2] ),
+        .I1(\maskPos_reg_n_0_[1] ),
+        .O(\outMask[4]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h8F00FFFF8F000000)) 
+    \outMask[5]_i_1 
+       (.I0(\outMask[5]_i_2_n_0 ),
+        .I1(\maskPos_reg_n_0_[2] ),
         .I2(ltOp),
         .I3(\FSM_onehot_state_reg_n_0_[5] ),
-        .O(\outMask[7]_i_5_n_0 ));
+        .I4(\outMask[5]_i_3_n_0 ),
+        .I5(outMask[5]),
+        .O(\outMask[5]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \outMask[5]_i_2 
+       (.I0(\maskPos_reg_n_0_[0] ),
+        .I1(\maskPos_reg_n_0_[1] ),
+        .O(\outMask[5]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF08000000)) 
+    \outMask[5]_i_3 
+       (.I0(eqOp),
+        .I1(\FSM_onehot_state_reg_n_0_[5] ),
+        .I2(\maskPos_reg_n_0_[1] ),
+        .I3(\maskPos_reg_n_0_[0] ),
+        .I4(\maskPos_reg_n_0_[2] ),
+        .I5(\bestDistance[8]_i_2_n_0 ),
+        .O(\outMask[5]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hEEAAFFFFEEAAC000)) 
+    \outMask[6]_i_1 
+       (.I0(\outMask[6]_i_2_n_0 ),
+        .I1(\outMask[6]_i_3_n_0 ),
+        .I2(eqOp),
+        .I3(\outMask[6]_i_5_n_0 ),
+        .I4(\bestDistance[8]_i_2_n_0 ),
+        .I5(outMask[6]),
+        .O(\outMask[6]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \outMask[6]_i_2 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(ltOp),
+        .O(\outMask[6]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \outMask[6]_i_3 
+       (.I0(\FSM_onehot_state_reg_n_0_[5] ),
+        .I1(\maskPos_reg_n_0_[0] ),
+        .O(\outMask[6]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \outMask[6]_i_5 
+       (.I0(\maskPos_reg_n_0_[1] ),
+        .I1(\maskPos_reg_n_0_[2] ),
+        .O(\outMask[6]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    \outMask[7]_i_6 
+    \outMask[6]_i_6 
        (.I0(tempDistance__0[7]),
-        .I1(\bestDistance_reg_n_0_[7] ),
-        .I2(\bestDistance_reg_n_0_[8] ),
+        .I1(bestDistance[7]),
+        .I2(bestDistance[8]),
         .I3(tempDistance__0[8]),
         .I4(tempDistance__0[6]),
-        .I5(\bestDistance_reg_n_0_[6] ),
-        .O(\outMask[7]_i_6_n_0 ));
+        .I5(bestDistance[6]),
+        .O(\outMask[6]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    \outMask[7]_i_7 
+    \outMask[6]_i_7 
        (.I0(tempDistance__0[5]),
-        .I1(\bestDistance_reg_n_0_[5] ),
-        .I2(\bestDistance_reg_n_0_[4] ),
+        .I1(bestDistance[5]),
+        .I2(bestDistance[4]),
         .I3(tempDistance__0[4]),
-        .I4(\bestDistance_reg_n_0_[3] ),
+        .I4(bestDistance[3]),
         .I5(tempDistance__0[3]),
-        .O(\outMask[7]_i_7_n_0 ));
+        .O(\outMask[6]_i_7_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    \outMask[7]_i_8 
+    \outMask[6]_i_8 
        (.I0(tempDistance__0[1]),
-        .I1(\bestDistance_reg_n_0_[1] ),
-        .I2(\bestDistance_reg_n_0_[2] ),
+        .I1(bestDistance[1]),
+        .I2(bestDistance[2]),
         .I3(tempDistance__0[2]),
         .I4(tempDistance__0[0]),
-        .I5(\bestDistance_reg_n_0_[0] ),
-        .O(\outMask[7]_i_8_n_0 ));
+        .I5(bestDistance[0]),
+        .O(\outMask[6]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'h4F00FFFF4F000000)) 
+    \outMask[7]_i_1 
+       (.I0(\outMask[7]_i_2_n_0 ),
+        .I1(\maskPos_reg_n_0_[2] ),
+        .I2(ltOp),
+        .I3(\FSM_onehot_state_reg_n_0_[5] ),
+        .I4(\outMask[7]_i_3_n_0 ),
+        .I5(outMask[7]),
+        .O(\outMask[7]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h7)) 
+    \outMask[7]_i_2 
+       (.I0(\maskPos_reg_n_0_[1] ),
+        .I1(\maskPos_reg_n_0_[0] ),
+        .O(\outMask[7]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF80000000)) 
+    \outMask[7]_i_3 
+       (.I0(eqOp),
+        .I1(\FSM_onehot_state_reg_n_0_[5] ),
+        .I2(\maskPos_reg_n_0_[2] ),
+        .I3(\maskPos_reg_n_0_[0] ),
+        .I4(\maskPos_reg_n_0_[1] ),
+        .I5(\bestDistance[8]_i_2_n_0 ),
+        .O(\outMask[7]_i_3_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \outMask_reg[0] 
@@ -1975,6 +2100,13 @@ end
         .D(\outMask[6]_i_1_n_0 ),
         .Q(outMask[6]),
         .R(1'b0));
+  CARRY4 \outMask_reg[6]_i_4 
+       (.CI(1'b0),
+        .CO({\NLW_outMask_reg[6]_i_4_CO_UNCONNECTED [3],eqOp,\outMask_reg[6]_i_4_n_2 ,\outMask_reg[6]_i_4_n_3 }),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(\NLW_outMask_reg[6]_i_4_O_UNCONNECTED [3:0]),
+        .S({1'b0,\outMask[6]_i_6_n_0 ,\outMask[6]_i_7_n_0 ,\outMask[6]_i_8_n_0 }));
   FDRE #(
     .INIT(1'b0)) 
     \outMask_reg[7] 
@@ -1983,13 +2115,6 @@ end
         .D(\outMask[7]_i_1_n_0 ),
         .Q(outMask[7]),
         .R(1'b0));
-  CARRY4 \outMask_reg[7]_i_3 
-       (.CI(1'b0),
-        .CO({\NLW_outMask_reg[7]_i_3_CO_UNCONNECTED [3],eqOp,\outMask_reg[7]_i_3_n_2 ,\outMask_reg[7]_i_3_n_3 }),
-        .CYINIT(1'b1),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(\NLW_outMask_reg[7]_i_3_O_UNCONNECTED [3:0]),
-        .S({1'b0,\outMask[7]_i_6_n_0 ,\outMask[7]_i_7_n_0 ,\outMask[7]_i_8_n_0 }));
   LUT2 #(
     .INIT(4'h9)) 
     \tempDistance[3]_i_10 
@@ -2097,7 +2222,7 @@ end
        (.I0(L2[0]),
         .I1(R2[0]),
         .O(\tempDistance[3]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \tempDistance[7]_i_11 
@@ -2107,7 +2232,7 @@ end
         .I3(R2[2]),
         .I4(R2[4]),
         .O(\tempDistance[7]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     \tempDistance[7]_i_13 

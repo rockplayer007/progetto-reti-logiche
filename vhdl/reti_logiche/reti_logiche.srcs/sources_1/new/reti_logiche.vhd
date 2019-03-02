@@ -1,3 +1,12 @@
+----------------------------------------------------------------------------------
+-- Company: Politecnico 
+-- Engineer: Roland 
+-- 
+-- Design Name: project_reti_logiche
+-- Project Name: Prova Finale di Reti Logiche
+--
+----------------------------------------------------------------------------------
+
 LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_arith;
@@ -19,7 +28,7 @@ ENTITY project_reti_logiche IS
 END project_reti_logiche;
 
 ARCHITECTURE behavioral OF project_reti_logiche IS
-	TYPE stateType IS (reset, changeAddress, waitClock, readData, calcDistance, compareDistance, load, sendMask, last);
+	TYPE stateType IS (reset, changeAddress, waitClock, readData, calcDistance, compareDistance, sendMask, load, last);
 	SIGNAL state : stateType;
 
 	TYPE addressRead IS (readMask, readXPoint, readYPoint, readXCoord, readYCoord);

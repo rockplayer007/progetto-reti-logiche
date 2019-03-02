@@ -1,2 +1,4 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/vhdl/reti_logiche/reti_logiche.sim/sim_1/synth/func/xsim/project_tb_func_synth.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity project_reti_logiche
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/Test+Bench+di+Esempio.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity project_tb

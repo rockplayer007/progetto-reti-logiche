@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Tue Feb 26 19:04:01 2019
+-- Date        : Fri Mar  1 17:50:00 2019
 -- Host        : ComputerDiRoland running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -mode funcsim -nolib -force -file {C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo
 --               anno/lezioni/primo semestre/reti
@@ -336,24 +336,24 @@ architecture STRUCTURE of project_reti_logiche is
   attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_4\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_7\ : label is "soft_lutpair2";
   attribute FSM_ENCODED_STATES : string;
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[0]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[0]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP : string;
   attribute KEEP of \FSM_onehot_state_reg[0]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[1]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[1]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[1]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[2]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[2]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[2]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[3]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[3]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[3]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[4]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[4]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[4]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[5]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[5]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[5]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[6]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[6]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[6]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[7]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[7]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[7]\ : label is "yes";
-  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[8]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[8]\ : label is "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000";
   attribute KEEP of \FSM_onehot_state_reg[8]\ : label is "yes";
   attribute SOFT_HLUTNM of \cnt[2]_i_4\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \currentAddress[4]_i_2\ : label is "soft_lutpair7";

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue Feb 26 19:04:20 2019
+// Date        : Fri Mar  1 17:50:47 2019
 // Host        : ComputerDiRoland running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               {C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti
@@ -617,7 +617,7 @@ end
         .I4(\cnt_reg_n_0_[0] ),
         .I5(\FSM_onehot_state_reg_n_0_[1] ),
         .O(\FSM_onehot_state[8]_i_6_n_0 ));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b1)) 
@@ -627,7 +627,7 @@ end
         .D(\FSM_onehot_state[0]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[0] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -637,7 +637,7 @@ end
         .D(\FSM_onehot_state[1]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[1] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -647,7 +647,7 @@ end
         .D(\FSM_onehot_state[2]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[2] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -657,7 +657,7 @@ end
         .D(\FSM_onehot_state[3]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[3] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -667,7 +667,7 @@ end
         .D(\FSM_onehot_state[4]_i_1_n_0 ),
         .Q(tempDistance),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -677,7 +677,7 @@ end
         .D(\FSM_onehot_state[5]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[5] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -687,7 +687,7 @@ end
         .D(\FSM_onehot_state[6]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[6] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -697,7 +697,7 @@ end
         .D(\FSM_onehot_state[7]_i_1_n_0 ),
         .Q(\FSM_onehot_state_reg_n_0_[7] ),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,read:000000010,reset:000000001,waitagain:001000000,load:010000000,last:100000000,comparedistance:000100000" *) 
+  (* FSM_ENCODED_STATES = "calcdistance:000010000,readdata:000001000,waitclock:000000100,changeaddress:000000010,reset:000000001,load:010000000,sendmask:001000000,last:100000000,comparedistance:000100000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 

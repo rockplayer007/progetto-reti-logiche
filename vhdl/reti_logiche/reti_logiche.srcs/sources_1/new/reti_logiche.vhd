@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: Politecnico 
--- Engineer: Roland 
+-- Engineer: Roland Reylander
 -- 
 -- Design Name: project_reti_logiche
 -- Project Name: Prova Finale di Reti Logiche

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"autogen_test_bench_10_func_impl.vhd" \
+"../../../../../../../Test Bench/random/test10.vhd" \
+
+# Do not sort compile order
+nosort

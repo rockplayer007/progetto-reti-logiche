@@ -4,6 +4,14 @@
 \usepackage{pdfpages, caption}
 \usepackage{listings}
 
+%make the front page pretty
+\usepackage{url, lipsum}
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+%\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+
 \usepackage{hyperref}%for hypertext
 
 \setlength{\footskip}{100pt}
@@ -19,15 +27,28 @@
 	linkcolor=black,
 	urlcolor=black
 }
+
+
+
+
+
 %opening
-\title{Progetto finale di Reti Logiche}
-\author{Roland Reylander [10539438]}
-\date{1 Aprile 2019}
+\title{\textbf{Progetto finale di Reti Logiche}}
+\author{Roland Reylander \\
+		Codice persna: 10539438 \\
+		Matricola: 868917 \\
+		\vspace*{0.5in} \\
+		\textbf{Politecnico di Milano}}
+\date{Consegna 1 Aprile 2019}
+
+
 \begin{document}
 
 \maketitle
 \leavevmode
-\\[21\baselineskip]
+
+\pagebreak
+%\\[21\baselineskip]
 \tableofcontents
 
 
@@ -66,7 +87,7 @@ Il componente dovr\`{a} interfacciarsi con una memoria RAM dalla quale legge i d
 \captionof{table}{Rappresentazione della RAM} 
 \end{center}
 \leavevmode\newline
-Per risolvere il problema \`{e} necessario leggere la maschera e le coordinate del punto e successivamente leggere dalla RAM i centroidi per poi valutare quelli pi\`{u} vicini. Completate queste operazioni bisoga scrivere nell'indirizzo 19 della memoria la maschera che avr\`{a} valore $1$ sul bit relativo al centroide, considerando il bit meno significativo a destra e quello pi\`{u} significativo a sinistra.
+Per risolvere il problema \`{e} necessario leggere la maschera e le coordinate del punto e successivamente leggere dalla RAM i centroidi per poi valutare quelli pi\`{u} vicini. Completate queste operazioni occorre scrivere nell'indirizzo 19 della memoria la maschera che avr\`{a} valore $1$ sui bit relativi ai centroidi pi\`{u} vicini al punto, considerando il bit meno significativo a destra e quello pi\`{u} significativo a sinistra.
 
 
 \pagebreak
@@ -80,7 +101,7 @@ Per affrontare la risoluzione di questo problema \`{e} stata pensata una FSM con
 	\item \textbf{readData}: in base al valore di \texttt{cnt} in questo stato vengono salvati su dei signal dedicati i valori della maschera e delle coordinate del punto. Successivamente verranno usati i signal \texttt{xAddress} e \texttt{yAddress} per memorizzare le coordinate dei centroidi;
 	\item \textbf{calcDistance}: viene calcolata la distanza e memorizzata in \texttt{tempDistance};
 	\item \textbf{compareDistance}: la distanza calcolata al punto precedente viene confrontata con \texttt{bestDistance} in modo da tenere solo i centroidi pi\`{u} vicini;
-	\item \textbf{sendMask}: \texttt{o\_data} assume il valore del risultato finale, l'indirizzo da mandare alla RAM è il 19$^\circ$ e \texttt{o\_we} viene settato a $1$ per la scrittura del risultato;
+	\item \textbf{sendMask}: \texttt{o\_data} assume il valore del risultato finale, l'indirizzo da mandare alla RAM \`{e} il 19$^\circ$ e \texttt{o\_we} viene settato a $1$ per la scrittura del risultato;
 	\item \textbf{load}: segnale di \texttt{o\_done} viene messo a $1$ per indicare la fine dell'elaborazione e l'avvenuta scrittura del risultato;
 	\item \textbf{last}: \texttt{o\_done} torna a $0$ e il componente torna allo stato di \texttt{reset} pronto per ricevere il prossimo segnale di start.
 	
@@ -91,7 +112,7 @@ Dopo la lettura della maschera dalla RAM nello stato \texttt{changeAddress} vien
 \newline
 I signal \texttt{tempDistance} e \texttt{bestDistance} sono entrambi \texttt{std\_logic\_vector(8 DOWNTO 0)} dato che la distanza massima delle coordinate X e Y dei centroidi \`{e} $255+255=510$ e necessita quindi di 8 bit. Inoltre \texttt{bestDistance} viene inizializzata nello stato di \texttt{reset} con \texttt{OTHERS => \textsc{\char13}1\textsc{\char13}} cio\`{e} $511$ che \`{e} maggiore della massima distanza possibile dei centroidi e permettendo il corretto funzionamento dell'algoritmo.
 \newline
-Nella figura seguente viene rappresentata la macchina a stati mostrando le condizioni significative per passare dallo stato corrente allo stato prossimo. Il cambiamento di stato avviene al ciclo di clock successivo e inoltre da ogni stato è possibile tornare allo stato di reset quando $\texttt{i\_rst}=1$ che non viene rappresentato per non appesantire il grafico.
+Nella figura seguente viene rappresentata la macchina a stati mostrando le condizioni significative per passare dallo stato corrente allo stato prossimo. Il cambiamento di stato avviene al ciclo di clock successivo e inoltre da ogni stato \`{e} possibile tornare allo stato di reset quando $\texttt{i\_rst}=1$ che non viene rappresentato per non appesantire il grafico.
 \pagebreak
 
 \addcontentsline{toc}{subsection}{Macchina a stati}
@@ -103,8 +124,8 @@ Nella figura seguente viene rappresentata la macchina a stati mostrando le condi
 \section{Risultati dei test}
 Per controllare il corretto funzionamento del componente sono stati fatti dei test specifici ogniqualvolta si \`{e} aggiunto un nuovo stato. Questi hanno permesso di controllare che:
 \begin{itemize}
-	\item gli indirizzi della RAM venissero scanditi uno alla volta partendo da $0$, proseguendo leggendo gli indirizzi $18$ e $19$ per le coordinate del punto. Dopodich\'{e} leggono le coordinate dei centroidi, saltando eventualmente gli indirizzi delle coordinate i cui centroidi hanno il bit della maschera uguale a $0$.
-	\item lo stato \texttt{calcDistance} effettivamente calcolasse la distanza giusta, considerando i punti menzionati precedentemente nelle \hyperref[sec:scelte]{\textit{Scelte progettuali}}. Inoltre \`{e} stato controllato che la funzione \texttt{abs()} inclusa nel package \texttt{IEEE.STD\_LOGIC\_1164.all} fosse anche sintetizzable, ottenendo quindi questa formula per il calcolo della distanza:
+	\item gli indirizzi della RAM siano scanditi uno alla volta partendo da $0$, proseguendo alla lettura degli indirizzi $18$ e $19$ per le coordinate del punto. Successivamente leggono le coordinate dei centroidi, saltando eventualmente gli indirizzi delle coordinate i cui centroidi hanno il bit della maschera uguale a $0$.
+	\item lo stato \texttt{calcDistance} effettivamente calcoli la distanza giusta, considerando i punti menzionati precedentemente nelle \hyperref[sec:scelte]{\textit{Scelte progettuali}}. Inoltre \`{e} stato controllato che la funzione \texttt{abs()} inclusa nel package \texttt{IEEE.STD\_LOGIC\_1164.all} fosse anche sintetizzabile, ottenendo quindi questa formula per il calcolo della distanza:
 	\newline
 %	\begin{minted}{vhdl}
 %	tempDistance <= std_logic_vector((ABS(signed('0' & xAddress) - signed('0' & xPoint)))) +
@@ -112,6 +133,16 @@ Per controllare il corretto funzionamento del componente sono stati fatti dei te
 %	\begin{minted}{vhdl}
 %	std_logic_vector((ABS(signed('0' & yAddress) - signed('0' & yPoint))));
 %	\end{minted}
+
+%\begin{comment}
+%	\newline
+%	\begin{minted}{vhdl}
+%	tempDistance <= std_logic_vector((ABS(signed('0' & xAddress) - signed('0' & xPoint)))) +
+%	\end{minted}
+%	\begin{minted}{vhdl}
+%	std_logic_vector((ABS(signed('0' & yAddress) - signed('0' & yPoint))));
+%	\end{minted}
+%\end{comment}
 	
 	
 	
@@ -140,7 +171,7 @@ Una volta conclusi i test per verificare la logica del componente si sono aggiun
 
 
 \section{Risultati della sintesi}
-Il componente passa tutti i test menzionati precedentemente incluso il test bench di esempio. Una volta verificato il perfetto funzionamento in \textit{Behavioral Simulation} il componente \`{e} stato sintetizzato. Dopo la sintesi il componente \`{e} stato sottoposto a tutti i test mostrando risultati sbagliati. Un'analisi attenta ha mostrato che il l'uso di \texttt{variabile} al posto di \texttt{signal} dava dei ritardi inaspettati. La sostituzione delle variabili e una revisione generale del codice hanno portato a una versione finale funzionante. Infatti il componente viene sintetizzato correttamente e passa tutti i test creati sia in \textit{Behavioral Simulation}, in \textit{Post-Synthesis Funcional} e \textit{Post-Synthesis Timing}. Inoltre, anche se non richiesto, il componente passa gli stessi test anche in \textit{Post-Implementation}.
+Il componente passa tutti i test menzionati precedentemente incluso il test bench di esempio. Una volta verificato il perfetto funzionamento in \textit{Behavioral Simulation} il componente \`{e} stato sintetizzato. Dopo la sintesi il componente \`{e} stato sottoposto a tutti i test mostrando risultati errati. Un'analisi attenta ha mostrato che il l'uso di \texttt{variabile} al posto di \texttt{signal} dava dei ritardi inaspettati. La sostituzione delle variabili e una revisione generale del codice hanno portato a una versione finale funzionante. Infatti il componente viene sintetizzato correttamente e passa tutti i test creati sia in \textit{Behavioral Simulation}, in \textit{Post-Synthesis Funcional} e \textit{Post-Synthesis Timing}. Inoltre, anche se non richiesto, il componente passa gli stessi test anche in \textit{Post-Implementation}.
 
 \pagebreak
 

@@ -49,8 +49,8 @@
 	\pagebreak
 	
 	\section{Specifiche di progetto}
-	Lo scopo del progetto \`e la realizzazione di un componente hardware usando il linguaggio VHDL che risolve il seguente problema: in uno spazio quadrato di 256x256 vengono posizionati 8 centroidi e si vuole trovare il centroide o i centroidi pi\`{u} vicini ad un punto dato.
-	\newline
+	Lo scopo del progetto \`e la realizzazione di un componente hardware usando il linguaggio VHDL che risolve il seguente problema: in uno spazio quadrato di 256x256 vengono posizionati 8 centroidi e si vuole trovare il centroide o i centroidi pi\`{u} vicini ad un punto dato.\medskip
+	\newline 
 	Il componente dovr\`{a} interfacciarsi con una memoria RAM dalla quale legge i dati di input e scrive il risultato della computazione. La memoria RAM di input contiene la maschera dei centroidi da considerare, le coordinate dei centroidi, le coordinate del punto dal quale calcolare la distanza e un inidirizzo dedicato al risultato, cio\`{e} la maschera di uscita.
 	\newline
 	
@@ -100,11 +100,13 @@
 		\item \textbf{last}: \texttt{o\_done} torna a $0$ e il componente torna allo stato di \texttt{reset} pronto per ricevere il prossimo segnale di start.
 		
 	\end{itemize}
-	Tutto il funzionamento avviene all'interno di un process in cui la lista di sensibilit\`{a} \`{e} composta da \texttt{i\_rst} e \texttt{i\_clk} in modo tale da poter tornare nello stato di \texttt{reset} quando $\texttt{i\_rst}=1$ e osservare il cambiamento del signal \texttt{state} di tipo \texttt{stateType} dichiarato all'inizio.
+	Tutto il funzionamento avviene all'interno di un process in cui la lista di sensibilit\`{a} \`{e} composta da \texttt{i\_rst} e \texttt{i\_clk} in modo tale da poter tornare nello stato di \texttt{reset} quando $\texttt{i\_rst}=1$ e osservare il cambiamento del signal \texttt{state} di tipo \texttt{stateType} dichiarato all'inizio. \medskip
 	\newline 
-	Dopo la lettura della maschera dalla RAM nello stato \texttt{changeAddress} viene scandita la maschera dei centroidi da considerare tramite il signal \texttt{maskPos} in modo da passare alla lettura delle coordinate dei centroidi in caso il bit sia 1 altrimenti verr\`{a} letto il prossimo bit della maschera.
+	Il signal \texttt{o\_en} per abilitare la lettura/scrittura della RAM viene inizializzato nello stato \texttt{reset} e rimane a $1$ per tutta l'esecuzione. L'alternativa sarebbe stata di portare il segnale a $0$ quando la RAM \`{e} inutilizzata, ma avrebbe aggiunto un registro in pi\`{u} in post sintesi.\medskip
 	\newline
-	I signal \texttt{tempDistance} e \texttt{bestDistance} sono entrambi \texttt{std\_logic\_vector(8 DOWNTO 0)} dato che la distanza massima delle coordinate X e Y dei centroidi \`{e} $255+255=510$ e necessita quindi di 8 bit. Inoltre \texttt{bestDistance} viene inizializzata nello stato di \texttt{reset} con \texttt{OTHERS => \textsc{\char13}1\textsc{\char13}} cio\`{e} $511$ che, essendo maggiore della massima distanza tra il punto e i centroidi, permette il corretto funzionamento dell'algoritmo.
+	Dopo la lettura della maschera dalla RAM nello stato \texttt{changeAddress} viene scandita la maschera dei centroidi da considerare tramite il signal \texttt{maskPos} in modo da passare alla lettura delle coordinate dei centroidi in caso il bit sia 1 altrimenti verr\`{a} letto il prossimo bit della maschera. \medskip
+	\newline
+	I signal \texttt{tempDistance} e \texttt{bestDistance} sono entrambi \texttt{std\_logic\_vector(8 DOWNTO 0)} dato che la distanza massima delle coordinate X e Y dei centroidi \`{e} $255+255=510$ e necessita quindi di 8 bit. Inoltre \texttt{bestDistance} viene inizializzata nello stato di \texttt{reset} con \texttt{OTHERS => \textsc{\char13}1\textsc{\char13}} cio\`{e} $511$ che, essendo maggiore della massima distanza tra il punto e i centroidi, permette il corretto funzionamento dell'algoritmo. \medskip
 	\newline
 	Nella figura seguente viene rappresentata la macchina a stati mostrando le condizioni significative per passare dallo stato corrente allo stato prossimo. Il cambiamento di stato avviene al ciclo di clock successivo e inoltre da ogni stato \`{e} possibile tornare allo stato di reset quando $\texttt{i\_rst}=1$ che non viene rappresentato per non appesantire il grafico.
 	\pagebreak
@@ -165,9 +167,16 @@
 	
 	
 	\section{Risultati della sintesi}
-	Il componente passa tutti i test menzionati precedentemente incluso il test bench di esempio. Una volta verificato il perfetto funzionamento in \textit{Behavioral Simulation} il componente \`{e} stato sintetizzato. Dopo la sintesi il componente \`{e} stato sottoposto a tutti i test mostrando risultati errati. Un'analisi attenta ha mostrato che il l'uso di \texttt{variabile} al posto di \texttt{signal} dava dei ritardi inaspettati. La sostituzione delle variabili e una revisione generale del codice hanno portato a una versione finale funzionante. Infatti il componente viene sintetizzato correttamente e passa tutti i test creati sia in \textit{Behavioral Simulation}, in \textit{Post-Synthesis Funcional} e \textit{Post-Synthesis Timing}. Inoltre, anche se non richiesto, il componente passa gli stessi test anche in \textit{Post-Implementation}.
+	Il componente passa tutti i test menzionati precedentemente incluso il test bench di esempio. Una volta verificato il perfetto funzionamento in \textit{Behavioral Simulation} il componente \`{e} stato sintetizzato. Dopo la sintesi il componente \`{e} stato sottoposto a tutti i test mostrando risultati errati.\medskip
+	\newline
+	Un'analisi attenta ha mostrato che il l'uso di \texttt{variabile} al posto di \texttt{signal} dava dei ritardi inaspettati. La sostituzione delle variabili e una revisione generale del codice hanno portato a una versione finale funzionante. Infatti il componente viene sintetizzato correttamente e passa tutti i test creati sia in \textit{Behavioral Simulation}, in \textit{Post-Synthesis Funcional} e \textit{Post-Synthesis Timing}. Inoltre, anche se non richiesto, il componente passa gli stessi test anche in \textit{Post-Implementation}.
 	
 	\pagebreak
+	
+	\section{Conclusioni}
+	Dopo aver analizzato le specifiche del progetto, si procede con l'ideare una macchina a stati, implementare gli stati su Vivado e garantire il funzionamento globale. Step successivo la scrittuara di test che permettano di controllare casi particolari e una volta superati con successo i test in \textit{Behavioral Simulation} il componente viene sintetizzato. Vengono ripetuti i test in \textit{Post-Synthesis Simulation} e aggiustato il codice in base ai risutati ottenuti dai test. La soluzione \`{e} data da un componente a nove stati che risolve i requisiti richiesti sia in \textit{Behavioral}, \textit{Post-Synthesis} e \textit{Post-Implementation}.
+	
+	
 	
 	\addcontentsline{toc}{subsection}{Schema \textit{Post-Synthesis}}
 	

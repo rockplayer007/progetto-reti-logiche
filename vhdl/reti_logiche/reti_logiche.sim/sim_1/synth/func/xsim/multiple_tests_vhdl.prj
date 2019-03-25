@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"multiple_tests_func_synth.vhd" \
+"../../../../../../../../../../../../../../Desktop/multiple_tests.vhd" \
+
+# Do not sort compile order
+nosort

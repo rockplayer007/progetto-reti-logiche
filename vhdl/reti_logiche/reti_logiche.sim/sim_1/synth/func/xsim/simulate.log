@@ -1,5 +1,5 @@
 Vivado Simulator 2018.2
 Time resolution is 1 ps
-Failure: TEST #10 OK
-Time: 5850100 ps  Iteration: 2  Process: /autogen_test_bench_10/test  File: C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/random/test10.vhd
-$finish called at time : 5850100 ps : File "C:/Users/ComputerDiRoland/OneDrive/PoliMi/Terzo anno/lezioni/primo semestre/reti logiche/progetto/Test Bench/random/test10.vhd" Line 114
+Failure: 1000 TESTS PASSED
+Time: 7047550100 ps  Iteration: 2  Process: /multiple_tests/test  File: C:/Users/ComputerDiRoland/Desktop/multiple_tests.vhd
+$finish called at time : 7047550100 ps : File "C:/Users/ComputerDiRoland/Desktop/multiple_tests.vhd" Line 32065
